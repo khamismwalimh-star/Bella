@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khamis - Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "outline": "#707974",
+                        "surface-dim": "#d3daef",
+                        "inverse-primary": "#95d3ba",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e9edff",
+                        "on-background": "#141b2b",
+                        "surface": "#f9f9ff",
+                        "on-primary-container": "#80bea6",
+                        "secondary": "#5c5f60",
+                        "tertiary-fixed": "#ffdad5",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-secondary-container": "#626566",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#bfc9c3",
+                        "surface-variant": "#dce2f7",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#b0f0d6",
+                        "primary-container": "#064e3b",
+                        "surface-container-high": "#e1e8fd",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-surface": "#293040",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "surface-tint": "#2b6954",
+                        "primary-fixed-dim": "#95d3ba",
+                        "tertiary-container": "#6b342d",
+                        "on-primary-fixed": "#002117",
+                        "on-tertiary-container": "#ea9e93",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#141b2b",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#dce2f7",
+                        "tertiary": "#4f1f19",
+                        "surface-bright": "#f9f9ff",
+                        "primary": "#003527",
+                        "on-tertiary-fixed": "#380d08",
+                        "on-surface-variant": "#404944",
+                        "secondary-fixed": "#e1e3e4",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "on-secondary-fixed-variant": "#454748",
+                        "secondary-container": "#e1e3e4",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-tertiary-fixed-variant": "#6e372f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-margin": "120px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["30px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased flex flex-col">
+<!-- Top Navigation (Suppressed per logic: Checkout is a linear/transactional flow) -->
+<!-- We will provide a simplified Header with a 'Back' or 'Cancel' action -->
+<header class="bg-surface w-full py-md px-container-margin max-w-[1440px] mx-auto flex items-center justify-between">
+<a class="flex items-center text-on-surface hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm">arrow_back</span>
+<span class="font-body-md text-body-md">Back to Cart</span>
+</a>
+<div class="font-headline-md text-headline-md font-bold text-primary">Khamis</div>
+<div class="flex items-center text-on-surface">
+<span class="material-symbols-outlined mr-sm text-primary">lock</span>
+<span class="font-label-sm text-label-sm">Secure Checkout</span>
+</div>
+</header>
+<!-- Main Checkout Content -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-container-margin py-xl grid grid-cols-1 md:grid-cols-12 gap-xl">
+<!-- Left Column: Forms -->
+<div class="md:col-span-7 flex flex-col gap-lg">
+<h1 class="font-headline-lg text-headline-lg hidden md:block">Checkout</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:hidden">Checkout</h1>
+<!-- Delivery Address Form -->
+<section class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant">
+<h2 class="font-headline-md text-headline-md mb-md flex items-center">
+<span class="material-symbols-outlined mr-sm text-primary">local_shipping</span>
+                    Delivery Address
+                </h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col col-span-2 md:col-span-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs" for="firstName">First Name</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary transition-colors" id="firstName" type="text"/>
+</div>
+<div class="flex flex-col col-span-2 md:col-span-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs" for="lastName">Last Name</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary transition-colors" id="lastName" type="text"/>
+</div>
+<div class="flex flex-col col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs" for="address">Street Address</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary transition-colors" id="address" type="text"/>
+</div>
+<div class="flex flex-col col-span-2 md:col-span-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs" for="city">City</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary transition-colors" id="city" type="text"/>
+</div>
+<div class="flex flex-col col-span-2 md:col-span-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs" for="zip">ZIP / Postal Code</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary transition-colors" id="zip" type="text"/>
+</div>
+<div class="flex flex-col col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs" for="phone">Phone Number</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary transition-colors" id="phone" type="tel"/>
+</div>
+</form>
+</section>
+<!-- Payment Method -->
+<section class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant">
+<h2 class="font-headline-md text-headline-md mb-md flex items-center">
+<span class="material-symbols-outlined mr-sm text-primary">payment</span>
+                    Payment Method
+                </h2>
+<div class="flex flex-col gap-sm">
+<!-- Credit Card Option -->
+<label class="flex items-start p-md border border-primary rounded-lg bg-surface-container-low cursor-pointer relative transition-all">
+<div class="flex items-center h-5">
+<input checked="" class="w-4 h-4 text-primary bg-surface border-outline focus:ring-primary" name="payment" type="radio" value="card"/>
+</div>
+<div class="ml-sm flex-1">
+<span class="font-body-md text-body-md font-bold block">Credit Card</span>
+<!-- Card Details Form (Visible when selected) -->
+<div class="mt-md grid grid-cols-2 gap-sm w-full">
+<div class="flex flex-col col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Card Number</label>
+<div class="relative">
+<input class="w-full border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary pl-[2.5rem]" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-sm top-1/2 transform -translate-y-1/2 text-on-surface-variant">credit_card</span>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Expiry Date</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary" placeholder="MM/YY" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs">CVC</label>
+<input class="border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary" placeholder="123" type="text"/>
+</div>
+</div>
+</div>
+</label>
+<!-- Apple Pay Option -->
+<label class="flex items-center p-md border border-outline-variant rounded-lg hover:border-primary cursor-pointer transition-all">
+<div class="flex items-center h-5">
+<input class="w-4 h-4 text-primary bg-surface border-outline focus:ring-primary" name="payment" type="radio" value="apple_pay"/>
+</div>
+<div class="ml-sm flex items-center gap-sm">
+<span class="font-body-md text-body-md font-bold">Apple Pay</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="md:col-span-5">
+<div class="bg-surface-container p-lg rounded-xl sticky top-md">
+<h2 class="font-headline-md text-headline-md mb-lg border-b border-outline-variant pb-sm">Order Summary</h2>
+<!-- Items -->
+<div class="flex flex-col gap-md mb-lg border-b border-outline-variant pb-lg">
+<div class="flex justify-between items-start">
+<div class="flex gap-sm">
+<div class="w-16 h-16 rounded bg-surface-variant flex-shrink-0 border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist high-key photograph of a fresh, healthy salad bowl with vibrant greens, grilled chicken, and colorful vegetables on a pristine white surface, clinical lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMPTyWuYUvJOb8rrgFotamJikZQ25pbKQBqPeJOZsQXW_hFqbav85T3sG-qq8zNEb0Ocykg37811vo4A17gMvyBM4CLiOft99HQA30bOQo50ARv2xYAbkmKXoQysIx8omWKh111eYXT6pTg8BJWefqTi9lkEq1FhU4Sjj1k6kL_AZwK-44eySWTUWSrJ-_kdLP8gxhD6_ixXaLcsIprRtXw0R52a1bPLLknfQB0ciZtDCzIoghkgck"/>
+</div>
+<div>
+<h3 class="font-body-md text-body-md font-bold">Premium Lean Plan</h3>
+<p class="font-label-sm text-label-sm text-secondary mt-xs">1 Week Subscription • 3 Meals/Day</p>
+</div>
+</div>
+<span class="font-body-md text-body-md">$145.00</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="mb-lg border-b border-outline-variant pb-lg">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-xs block">Promo Code</label>
+<div class="flex gap-sm">
+<input class="flex-grow border border-outline-variant rounded p-sm bg-surface font-body-md text-body-md focus:outline-none focus:border-primary" placeholder="Enter code" type="text"/>
+<button class="px-md py-sm bg-secondary-container text-on-secondary-container rounded font-label-sm text-label-sm hover:bg-surface-variant transition-colors">Apply</button>
+</div>
+</div>
+<!-- Totals -->
+<div class="flex flex-col gap-sm mb-lg">
+<div class="flex justify-between font-body-md text-body-md text-secondary">
+<span>Subtotal</span>
+<span>$145.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-secondary">
+<span>Delivery</span>
+<span>$10.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-secondary">
+<span>Taxes</span>
+<span>$8.50</span>
+</div>
+<div class="flex justify-between font-body-lg text-body-lg font-bold text-on-surface mt-sm pt-sm border-t border-outline-variant">
+<span>Total</span>
+<span>$163.50</span>
+</div>
+</div>
+<!-- Confirm Button -->
+<button class="w-full bg-primary text-on-primary py-md rounded-lg font-body-lg text-body-lg font-bold flex items-center justify-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">lock</span>
+                    Confirm &amp; Pay
+                </button>
+<p class="font-label-sm text-label-sm text-secondary text-center mt-sm">Your payment information is processed securely.</p>
+</div>
+</div>
+</main>
+<!-- Footer Component from JSON (Mandatory Output) -->
+<footer class="bg-surface-container dark:bg-surface-container-highest mt-auto">
+<div class="grid grid-cols-12 gap-gutter py-lg px-container-margin w-full max-w-[1440px] mx-auto">
+<div class="col-span-12 md:col-span-4 mb-lg md:mb-0">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary mb-sm">Khamis</div>
+<p class="font-label-sm text-label-sm text-secondary dark:text-secondary-fixed-dim">© 2024 Khamis Diet Delivery. All rights reserved.</p>
+</div>
+<div class="col-span-12 md:col-span-8 flex flex-wrap gap-md md:justify-end">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity hover:opacity-80" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity hover:opacity-80" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity hover:opacity-80" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity hover:opacity-80" href="#">Contact</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity hover:opacity-80" href="#">Careers</a>
+</div>
+</div>
+</footer>
+</body></html>

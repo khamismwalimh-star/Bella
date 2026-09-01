@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | Khamis Diet Delivery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "outline": "#707974",
+                        "surface-dim": "#d3daef",
+                        "inverse-primary": "#95d3ba",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e9edff",
+                        "on-background": "#141b2b",
+                        "surface": "#f9f9ff",
+                        "on-primary-container": "#80bea6",
+                        "secondary": "#5c5f60",
+                        "tertiary-fixed": "#ffdad5",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-secondary-container": "#626566",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#bfc9c3",
+                        "surface-variant": "#dce2f7",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#b0f0d6",
+                        "primary-container": "#064e3b",
+                        "surface-container-high": "#e1e8fd",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-surface": "#293040",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "surface-tint": "#2b6954",
+                        "primary-fixed-dim": "#95d3ba",
+                        "tertiary-container": "#6b342d",
+                        "on-primary-fixed": "#002117",
+                        "on-tertiary-container": "#ea9e93",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#141b2b",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#dce2f7",
+                        "tertiary": "#4f1f19",
+                        "surface-bright": "#f9f9ff",
+                        "primary": "#003527",
+                        "on-tertiary-fixed": "#380d08",
+                        "on-surface-variant": "#404944",
+                        "secondary-fixed": "#e1e3e4",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "on-secondary-fixed-variant": "#454748",
+                        "secondary-container": "#e1e3e4",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-tertiary-fixed-variant": "#6e372f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-margin": "120px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["30px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface docked full-width top-0 border-b border-outline-variant flat no shadows flex justify-between items-center w-full px-container-margin h-20 max-w-[1440px] mx-auto z-50 sticky">
+<div class="flex items-center gap-md">
+<span class="font-headline-md text-headline-md font-bold text-primary">Khamis</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:bg-surface-container-low px-sm py-xs rounded" href="#">Plans</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:bg-surface-container-low px-sm py-xs rounded" href="#">Nutritionists</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:bg-surface-container-low px-sm py-xs rounded" href="#">How it Works</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:bg-surface-container-low px-sm py-xs rounded" href="#">Menu</a>
+<!-- Active state missing from JSON nav items as "About Us" isn't explicitly there, so assuming inactive for all top nav links on this intent page -->
+</nav>
+<div class="hidden md:flex items-center gap-sm">
+<button class="font-body-md text-body-md text-primary hover:bg-surface-container-low transition-all px-md py-sm rounded border border-transparent">Log In</button>
+<button class="font-body-md text-body-md bg-primary text-on-primary hover:bg-primary-container transition-all px-md py-sm rounded">Get Started</button>
+<img alt="User profile" class="w-8 h-8 rounded-full ml-sm object-cover border border-outline-variant" data-alt="A small, professional user profile headshot, minimalist corporate lighting, neutral background, deep forest green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7EQIetHNE1P1nZebuzvIIxxrQIxAsTru1fAL4P3b-XlKDMB-uzskyQ6-R7AyLaOiueOjpew9UpAjWYjeX3q5AXnDURwdjuTrY6ql4ntTHDS7s8RZMwI-02cUEoOihEdb_HDKHS29sVZONrVuR9e1gERuT_ZE8cpa5PJov9UtWM-UdPFqgi-XqstRlsnh79TTQGAm982tYHO3EMkyU-vZ_VX6Dfa-awu2b9351V8USsUAcbz9P1m2r"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto">
+<!-- Hero Section -->
+<section class="px-container-margin py-xl flex flex-col items-start gap-lg border-b border-outline-variant">
+<h1 class="font-display-xl text-display-xl text-primary max-w-4xl">Redefining the standard of clinical nutrition.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">At Khamis, we believe that health is built on precision and transparency. We combine rigorous clinical standards with premium culinary execution to deliver results you can trust.</p>
+</section>
+<!-- Brand Story (Bento Grid) -->
+<section class="px-container-margin py-xl grid grid-cols-12 gap-gutter border-b border-outline-variant">
+<div class="col-span-12 md:col-span-4 flex flex-col gap-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary">The Origin</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Founded by clinical dietitians frustrated by the lack of transparency in meal delivery, Khamis was built as a solution. No hidden ingredients, no generic macros—just precise, tailored nutrition.</p>
+</div>
+<div class="col-span-12 md:col-span-8 grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container p-lg rounded border border-outline-variant flex flex-col justify-end h-[300px]" data-alt="A pristine, clinical kitchen setting bathed in bright, natural white light. Stainless steel prep tables are immaculate. A subtle deep forest green accent hints at the brand color. High-end, corporate modern aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAeIUPvGGMi9z-1627r1AdaB2x3d_6K6HS0LaAQ32-kuOttSsoJFL2wzfw4HOK9DPUK7r_Za95Aa29hdrm5PBOTHy4BzYMlgcQ_6x43WHv7CBq5F3p-y7UI0zqBf60VYS1u0EWRD-YnhbnIwTW5N0R7HIJ0mOWFL8cV-DS2ZuFMxB03v_mj1mJ85YJ8tn6sx2qMtUL0TDPLmMU4dj3dxHmL-l5ePNUO0Egx-RgveXy0yKH16qyuJnAT'); background-size: cover; background-position: center;">
+<div class="bg-surface/90 backdrop-blur-sm p-md rounded border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-primary">Precision</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Every meal is meticulously calculated.</p>
+</div>
+</div>
+<div class="bg-surface-container p-lg rounded border border-outline-variant flex flex-col justify-end h-[300px]" data-alt="A minimalist laboratory environment with clear glass beakers and fresh green ingredients. Bright, clinical white lighting with deep forest green shadows. Conveying scientific trust and premium quality." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDB4Y4bYd9UYzf-JKqocySEL0AYEXHjlVdH1AWV07JhXh0djV2fNVKWX7HpDOasw9I9iA7T9RZiBE80S6G9pdyC_5sEri4Nj0dNUw_QUreaX-vUKsc4FHUz3JiQfZePieS1MkZsCs23EC5_V19Sapij1qtJw5oVIuhkkRRFm9FVuDHkFrB7L_uyhHSrTGYzIR5-A0q_3zORKK6gymDER4ezHmzxgda78Ms7aiiMXm7JHjv8oZm_AXbj'); background-size: cover; background-position: center;">
+<div class="bg-surface/90 backdrop-blur-sm p-md rounded border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-primary">Integrity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Complete ingredient transparency.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Grid -->
+<section class="px-container-margin py-xl bg-surface-container-low border-b border-outline-variant">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-lg">Our Core Tenets</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-lg border border-outline-variant bg-surface rounded flex flex-col gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="science" data-weight="fill" style="font-variation-settings: 'FILL' 1;">science</span>
+<h3 class="font-headline-md text-headline-md text-primary">Evidence-Based</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our protocols are dictated by peer-reviewed nutritional science, not fleeting dietary trends.</p>
+</div>
+<div class="p-lg border border-outline-variant bg-surface rounded flex flex-col gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="font-headline-md text-headline-md text-primary">Uncompromising Quality</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">From sourcing to delivery, we maintain a clinical standard of hygiene and preparation.</p>
+</div>
+<div class="p-lg border border-outline-variant bg-surface rounded flex flex-col gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant" data-weight="fill" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<h3 class="font-headline-md text-headline-md text-primary">Culinary Excellence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Health optimization should not require a sacrifice in taste or presentation.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container full-width border-t border-outline-variant flat no shadows grid grid-cols-12 gap-gutter py-lg px-container-margin w-full max-w-[1440px] mx-auto mt-auto">
+<div class="col-span-12 md:col-span-4 flex flex-col gap-md">
+<span class="font-headline-md text-headline-md font-bold text-primary">Khamis</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Khamis Diet Delivery. All rights reserved.</p>
+</div>
+<div class="col-span-12 md:col-span-8 flex justify-end gap-lg">
+<a class="font-label-sm text-label-sm text-primary underline hover:opacity-80 transition-opacity" href="#">About Us</a> <!-- Active state manually applied based on page context -->
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Contact</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Careers</a>
+</div>
+</footer>
+</body></html>

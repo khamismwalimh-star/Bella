@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khamis Admin Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "outline": "#707974",
+                    "surface-dim": "#d3daef",
+                    "inverse-primary": "#95d3ba",
+                    "background": "#f9f9ff",
+                    "surface-container": "#e9edff",
+                    "on-background": "#141b2b",
+                    "surface": "#f9f9ff",
+                    "on-primary-container": "#80bea6",
+                    "secondary": "#5c5f60",
+                    "tertiary-fixed": "#ffdad5",
+                    "on-secondary-fixed": "#191c1d",
+                    "on-secondary-container": "#626566",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "surface-variant": "#dce2f7",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#b0f0d6",
+                    "primary-container": "#064e3b",
+                    "surface-container-high": "#e1e8fd",
+                    "surface-container-low": "#f1f3ff",
+                    "inverse-surface": "#293040",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "surface-tint": "#2b6954",
+                    "primary-fixed-dim": "#95d3ba",
+                    "tertiary-container": "#6b342d",
+                    "on-primary-fixed": "#002117",
+                    "on-tertiary-container": "#ea9e93",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#141b2b",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#dce2f7",
+                    "tertiary": "#4f1f19",
+                    "surface-bright": "#f9f9ff",
+                    "primary": "#003527",
+                    "on-tertiary-fixed": "#380d08",
+                    "on-surface-variant": "#404944",
+                    "secondary-fixed": "#e1e3e4",
+                    "tertiary-fixed-dim": "#ffb4a9",
+                    "on-secondary-fixed-variant": "#454748",
+                    "secondary-container": "#e1e3e4",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-tertiary-fixed-variant": "#6e372f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin": "120px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-xl": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface font-body-md text-body-md docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows scale-95 active:scale-90 transition-transform">
+<div class="flex justify-between items-center w-full px-container-margin h-20 max-w-[1440px] mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">
+                Khamis
+            </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1" href="#">Dashboard</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Users</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Nutritionists</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Settings</a>
+</div>
+<div class="flex items-center gap-md">
+<img alt="User profile" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A clean, professional headshot of a corporate user on a neutral background, styled in a minimalist and bright aesthetic suitable for a premium admin dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbaTAm5thtDHwgDzoliQ7g9L2IdCk6L1kVakdw6fD7Jd8IdT63bE-BjEMpU4Ja3e6QvgSsSPTOtDtDo8PYODwC33sI98ym3omSPCvQI1AcQSTJ0ihhU9HXldq6GhmcgeWQdAU3xw3yNnrc7pSZddLQ3HR8J0-IlE_9R4G9u4T6FkrQNTpYEvYdViyOPfWbE_cqyQqrFbmHR8E6qJz_puIv-DirwAJSU228WrkMRmPFIZWtZOL2U6NM"/>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-container-margin py-lg flex flex-col gap-xl">
+<!-- Dashboard Header -->
+<header class="flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-sm">Overview</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">System performance and key metrics.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm border border-primary text-primary font-label-sm text-label-sm rounded bg-surface hover:bg-surface-container-low transition-colors">Export Report</button>
+<button class="px-md py-sm bg-primary text-on-primary font-label-sm text-label-sm rounded hover:bg-primary-container transition-colors">New Campaign</button>
+</div>
+</header>
+<!-- KPI Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- KPI Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col justify-between h-48">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Active Users</span>
+<span class="material-symbols-outlined text-primary" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-background mb-xs">24,592</div>
+<div class="font-label-sm text-label-sm text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+                        +12.5% vs last month
+                    </div>
+</div>
+</div>
+<!-- KPI Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col justify-between h-48">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Monthly Revenue</span>
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-background mb-xs">$142.8K</div>
+<div class="font-label-sm text-label-sm text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+                        +8.2% vs last month
+                    </div>
+</div>
+</div>
+<!-- KPI Card 3 -->
+<div class="bg-primary border border-primary rounded p-md flex flex-col justify-between h-48 text-on-primary">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest">Active Plans</span>
+<span class="material-symbols-outlined text-primary-fixed" data-icon="monitoring" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg mb-xs">8,941</div>
+<div class="font-label-sm text-label-sm text-primary-fixed flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                        94% Retention Rate
+                    </div>
+</div>
+</div>
+</section>
+<!-- Complex Layout Section: Tables & Queues -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Audience Management (Takes up 2 cols) -->
+<section class="lg:col-span-2 flex flex-col gap-md">
+<div class="flex justify-between items-end border-b border-outline-variant pb-sm">
+<h2 class="font-headline-md text-headline-md text-on-background">Audience Management</h2>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-secondary text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-xl pr-sm py-sm border border-outline-variant rounded bg-surface-container-lowest font-body-md text-body-md focus:outline-none focus:border-primary placeholder-secondary" placeholder="Search users..." type="text"/>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="py-sm px-md font-label-sm text-label-sm text-secondary uppercase">User</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-secondary uppercase">Status</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-secondary uppercase">Current Plan</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-secondary uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-bold">JD</div>
+<div>
+<div class="font-bold text-on-background">John Doe</div>
+<div class="font-label-sm text-label-sm text-secondary">john.d@example.com</div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-sm py-xs rounded bg-surface-container text-primary font-label-sm text-label-sm gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Active
+                                    </span>
+</td>
+<td class="py-md px-md text-on-surface-variant">Weight Loss Pro</td>
+<td class="py-md px-md text-right">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-bold">SA</div>
+<div>
+<div class="font-bold text-on-background">Sarah Adams</div>
+<div class="font-label-sm text-label-sm text-secondary">sarah.a@example.com</div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-sm py-xs rounded bg-surface-container text-primary font-label-sm text-label-sm gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Active
+                                    </span>
+</td>
+<td class="py-md px-md text-on-surface-variant">Maintenance Base</td>
+<td class="py-md px-md text-right">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center text-on-error-container font-bold">MR</div>
+<div>
+<div class="font-bold text-on-background">Michael Ross</div>
+<div class="font-label-sm text-label-sm text-secondary">m.ross@example.com</div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-sm py-xs rounded bg-surface-variant text-secondary font-label-sm text-label-sm gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Inactive
+                                    </span>
+</td>
+<td class="py-md px-md text-on-surface-variant">None</td>
+<td class="py-md px-md text-right">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Verification Queue (Takes 1 col) -->
+<aside class="flex flex-col gap-md">
+<div class="flex justify-between items-end border-b border-outline-variant pb-sm">
+<h2 class="font-headline-md text-headline-md text-on-background">Verification Queue</h2>
+<span class="font-label-sm text-label-sm bg-error text-on-error px-sm py-xs rounded">3 Pending</span>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Queue Item -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-sm">
+<img alt="Applicant profile" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A clean, professional headshot of a female nutritionist on a neutral background, styled in a minimalist and bright aesthetic suitable for a premium admin dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeziegug-fmV7ZZUgCiKj2e2N7gT3nf0GB1w8yI26agveAdcVoeUMconEwYnFbRCvyoI5hnbYena6jHo6r_zH6sj515pvs2titP3iR8g4Nvp1pTZuUV4LM_RFFBtj97637Fh6AJFAwEmOhM_kgRMyhVwQKoMsb8IGxYrkUniFWqN27GM4qe_3MD-PnhIqMzxyIOmSWfdVL4P_si2cE6LC7kGq9LnP3e8wr4cSiWElQEFX210fAknXv"/>
+<div>
+<div class="font-bold font-body-md text-body-md text-on-background">Dr. Emily Chen</div>
+<div class="font-label-sm text-label-sm text-secondary">Clinical Nutritionist</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="description">description</span>
+</div>
+<div class="flex gap-xs mt-sm">
+<button class="flex-1 py-xs border border-primary text-primary font-label-sm text-label-sm rounded hover:bg-surface-container-low transition-colors">Review</button>
+<button class="flex-1 py-xs bg-primary text-on-primary font-label-sm text-label-sm rounded hover:bg-primary-container transition-colors">Approve</button>
+</div>
+</div>
+<!-- Queue Item -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary font-bold">JW</div>
+<div>
+<div class="font-bold font-body-md text-body-md text-on-background">James Wilson</div>
+<div class="font-label-sm text-label-sm text-secondary">Dietitian, RD</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="description">description</span>
+</div>
+<div class="flex gap-xs mt-sm">
+<button class="flex-1 py-xs border border-primary text-primary font-label-sm text-label-sm rounded hover:bg-surface-container-low transition-colors">Review</button>
+<button class="flex-1 py-xs bg-primary text-on-primary font-label-sm text-label-sm rounded hover:bg-primary-container transition-colors">Approve</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest font-label-sm text-label-sm full-width flat no shadows mt-auto">
+<div class="grid grid-cols-12 gap-gutter py-lg px-container-margin w-full max-w-[1440px] mx-auto">
+<div class="col-span-12 md:col-span-4 flex flex-col gap-sm">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary mb-sm">
+                    Khamis
+                </div>
+<p class="text-on-surface-variant dark:text-surface-variant">© 2024 Khamis Diet Delivery. All rights reserved.</p>
+</div>
+<div class="col-span-12 md:col-span-8 flex justify-end gap-xl items-start">
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">About Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">Careers</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

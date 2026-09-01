@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khamis - User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "outline": "#707974",
+                    "surface-dim": "#d3daef",
+                    "inverse-primary": "#95d3ba",
+                    "background": "#f9f9ff",
+                    "surface-container": "#e9edff",
+                    "on-background": "#141b2b",
+                    "surface": "#f9f9ff",
+                    "on-primary-container": "#80bea6",
+                    "secondary": "#5c5f60",
+                    "tertiary-fixed": "#ffdad5",
+                    "on-secondary-fixed": "#191c1d",
+                    "on-secondary-container": "#626566",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "surface-variant": "#dce2f7",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#b0f0d6",
+                    "primary-container": "#064e3b",
+                    "surface-container-high": "#e1e8fd",
+                    "surface-container-low": "#f1f3ff",
+                    "inverse-surface": "#293040",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "surface-tint": "#2b6954",
+                    "primary-fixed-dim": "#95d3ba",
+                    "tertiary-container": "#6b342d",
+                    "on-primary-fixed": "#002117",
+                    "on-tertiary-container": "#ea9e93",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#141b2b",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#dce2f7",
+                    "tertiary": "#4f1f19",
+                    "surface-bright": "#f9f9ff",
+                    "primary": "#003527",
+                    "on-tertiary-fixed": "#380d08",
+                    "on-surface-variant": "#404944",
+                    "secondary-fixed": "#e1e3e4",
+                    "tertiary-fixed-dim": "#ffb4a9",
+                    "on-secondary-fixed-variant": "#454748",
+                    "secondary-container": "#e1e3e4",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-tertiary-fixed-variant": "#6e372f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin": "120px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-xl": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "display-xl": [
+                            "72px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "headline-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.03em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "30px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        /* Clinical-Premium Minimalism Overrides */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .bento-card {
+            border: 1px solid theme('colors.outline-variant');
+            background-color: theme('colors.surface');
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .bento-card:hover {
+            background-color: theme('colors.surface-container-lowest');
+            border-color: theme('colors.outline');
+        }
+
+        .minimal-input {
+            border: 1px solid theme('colors.outline-variant');
+            background-color: transparent;
+            transition: border-color 0.2s ease;
+        }
+        
+        .minimal-input:focus {
+            outline: none;
+            border-color: theme('colors.primary');
+        }
+        
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-link:hover {
+            background-color: theme('colors.surface-container-low');
+            color: theme('colors.primary');
+        }
+        
+        .sidebar-link.active {
+            background-color: theme('colors.surface-container-high');
+            color: theme('colors.primary');
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface text-primary dark:text-inverse-primary font-body-md text-body-md docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows z-50 sticky">
+<div class="flex justify-between items-center w-full px-container-margin h-20 max-w-[1440px] mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary scale-95 active:scale-90 transition-transform" href="#">
+                Khamis
+            </a>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all px-sm py-xs rounded" href="#">
+                    Plans
+                </a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all px-sm py-xs rounded" href="#">
+                    Nutritionists
+                </a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all px-sm py-xs rounded" href="#">
+                    How it Works
+                </a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all px-sm py-xs rounded" href="#">
+                    Menu
+                </a>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border border-outline-variant cursor-pointer scale-95 active:scale-90 transition-transform hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A clean, professional headshot of a user in a well-lit, minimalist environment. The background is a soft, neutral grey. The lighting is studio quality, emphasizing clarity and trust, suitable for a clinical-premium health application profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL9sC2CEy3Idi1RXUBXXAcCqb2GpWGKbGFPztQkG6l-dLM6RUaWPFOrrUA2AIj0PE3S9eD0M8OTDmHXdiJehycnWUJHBKtAWZ-qn1TQKWRiurGn7VLiVHrdwVwIUslojI2x9dyQruExzv2nLFekOYFUWxdEKpXba-WKaQj1Xe8JDucVFvvR1QpskFuYMvgiIet8z6h9vCTi-8CeRreZsf_R_ARnCXx0VxnGFY0tZ90i7RefOuIOXYi"/>
+</div>
+<!-- Assuming logged in for Profile view, showing profile instead of these actions -->
+<div class="flex items-center gap-sm">
+<span class="font-body-md text-body-md text-on-surface">Sarah Jenkins</span>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border border-outline-variant cursor-pointer scale-95 active:scale-90 transition-transform">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A clean, professional headshot of a user in a well-lit, minimalist environment. The background is a soft, neutral grey. The lighting is studio quality, emphasizing clarity and trust, suitable for a clinical-premium health application profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHzlIW9HfH-xK-hQqrlos-naRkIzwhj4Gm-G8CckLV4sCArv4ADq7gmU6VNCpfdf1fTZ7JUMh6GknQI2wyWu7ttAtUEEXS5kOtItMu9Ls-X2Ct25rM-WhrCB_61TK2NRSMuWE8xAB38WjrlPQ0NEAfoL-Wj28fK4xXJTyTLWEf1Uwqx0d71XMOW33BgPtQDSflvrQDZsuldPDqsH4E8pGbsK3wDdzkUDYppVN1wzR_dkDqLNbKsbgF"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex w-full max-w-[1440px] mx-auto px-container-margin py-xl gap-xl">
+<!-- Sidebar -->
+<aside class="w-64 hidden md:flex flex-col gap-sm shrink-0">
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-sm px-sm">Settings</h3>
+<a class="sidebar-link active flex items-center gap-sm px-sm py-xs rounded text-body-md font-body-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+                Personal Details
+            </a>
+<a class="sidebar-link flex items-center gap-sm px-sm py-xs rounded text-body-md font-body-md text-secondary" href="#">
+<span class="material-symbols-outlined">vital_signs</span>
+                Health Goals
+            </a>
+<a class="sidebar-link flex items-center gap-sm px-sm py-xs rounded text-body-md font-body-md text-secondary" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                Active Diet Plan
+            </a>
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mt-lg mb-sm px-sm">Quick Links</h3>
+<a class="sidebar-link flex items-center gap-sm px-sm py-xs rounded text-body-md font-body-md text-secondary" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+                Consultations
+            </a>
+<a class="sidebar-link flex items-center gap-sm px-sm py-xs rounded text-body-md font-body-md text-secondary" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                Payment History
+            </a>
+<div class="mt-auto pt-lg">
+<button class="flex items-center gap-sm px-sm py-xs text-error font-body-md hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">logout</span>
+                    Sign Out
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-grow flex flex-col gap-lg min-w-0">
+<header class="flex justify-between items-end border-b border-outline-variant pb-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Personal Profile</h1>
+<p class="font-body-md text-body-md text-secondary">Manage your clinical information and preferences.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-md py-sm rounded hover:bg-primary-container transition-colors">
+                    Save Changes
+                </button>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Personal Info Card -->
+<div class="bento-card rounded-lg p-md lg:col-span-8 flex flex-col gap-md">
+<div class="flex items-center gap-sm mb-sm border-b border-outline-variant pb-sm">
+<span class="material-symbols-outlined text-primary">badge</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Identity Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase">Full Name</label>
+<input class="minimal-input rounded font-body-md text-body-md p-sm text-on-surface w-full" type="text" value="Sarah Jenkins"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase">Date of Birth</label>
+<input class="minimal-input rounded font-body-md text-body-md p-sm text-on-surface w-full" type="date" value="1985-04-12"/>
+</div>
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-sm text-label-sm text-secondary uppercase">Email Address</label>
+<input class="minimal-input rounded font-body-md text-body-md p-sm text-on-surface w-full" type="email" value="sarah.jenkins@example.com"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase">Phone Number</label>
+<input class="minimal-input rounded font-body-md text-body-md p-sm text-on-surface w-full" type="tel" value="+1 (555) 019-8234"/>
+</div>
+</div>
+</div>
+<!-- Verified Status Card -->
+<div class="bento-card rounded-lg p-md lg:col-span-4 flex flex-col justify-center items-center text-center gap-md bg-surface-container-low">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" style="font-size: 32px; font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Verified Patient</h3>
+<p class="font-body-md text-body-md text-secondary">Your clinical profile is fully authenticated and reviewed by Khamis nutritionists.</p>
+</div>
+<button class="mt-sm border border-primary text-primary font-label-sm text-label-sm px-md py-sm rounded hover:bg-surface-container transition-colors w-full">
+                        View Clinical Record
+                    </button>
+</div>
+<!-- Active Diet Plan Summary -->
+<div class="bento-card rounded-lg p-md lg:col-span-12 flex flex-col gap-md">
+<div class="flex items-center gap-sm mb-sm border-b border-outline-variant pb-sm">
+<span class="material-symbols-outlined text-primary">monitoring</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Intervention Plan</h2>
+</div>
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="flex-1 flex flex-col gap-sm">
+<div class="flex items-center gap-xs">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-sm py-xs rounded">Active</span>
+<span class="font-body-md text-body-md text-secondary">Started Oct 1, 2024</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Metabolic Reset Protocol Phase II</h3>
+<p class="font-body-lg text-body-lg text-secondary">A highly structured low-glycemic approach focused on stabilizing insulin response and reducing systemic inflammation.</p>
+</div>
+<div class="flex-shrink-0 grid grid-cols-2 gap-sm w-full md:w-auto">
+<div class="bg-surface-container p-sm rounded border border-outline-variant text-center">
+<span class="block font-label-sm text-label-sm text-secondary uppercase mb-xs">Daily Cal</span>
+<span class="block font-headline-md text-headline-md text-on-surface">1,850</span>
+</div>
+<div class="bg-surface-container p-sm rounded border border-outline-variant text-center">
+<span class="block font-label-sm text-label-sm text-secondary uppercase mb-xs">Protein</span>
+<span class="block font-headline-md text-headline-md text-on-surface">120g</span>
+</div>
+<div class="bg-surface-container p-sm rounded border border-outline-variant text-center col-span-2">
+<span class="block font-label-sm text-label-sm text-secondary uppercase mb-xs">Next Consult</span>
+<span class="block font-body-lg text-body-lg text-primary font-semibold">Nov 15, 2:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Health Goals List -->
+<div class="bento-card rounded-lg p-md lg:col-span-12 flex flex-col gap-md">
+<div class="flex items-center justify-between mb-sm border-b border-outline-variant pb-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">flag</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Clinical Goals</h2>
+</div>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span> Add Goal
+                        </button>
+</div>
+<ul class="flex flex-col gap-sm">
+<li class="flex items-center justify-between p-sm hover:bg-surface-container-lowest border border-transparent hover:border-outline-variant rounded transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">weight</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Reduce Body Fat %</h4>
+<p class="font-label-sm text-label-sm text-secondary">Target: 18% | Current: 22%</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary cursor-pointer transition-colors">edit</span>
+</li>
+<li class="h-px w-full bg-outline-variant"></li>
+<li class="flex items-center justify-between p-sm hover:bg-surface-container-lowest border border-transparent hover:border-outline-variant rounded transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">blood_pressure</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Stabilize Blood Glucose</h4>
+<p class="font-label-sm text-label-sm text-secondary">Fasting target: &lt; 90 mg/dL</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary cursor-pointer transition-colors">edit</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest text-primary dark:text-inverse-primary font-label-sm text-label-sm full-width bg-surface-container dark:bg-surface-container-highest flat no shadows none grid grid-cols-12 gap-gutter py-lg px-container-margin w-full mt-auto">
+<div class="col-span-12 md:col-span-4 flex flex-col gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">Khamis</span>
+<p class="text-on-surface-variant dark:text-surface-variant">Clinical-grade nutritional delivery.</p>
+</div>
+<div class="col-span-12 md:col-span-8 flex flex-wrap justify-end gap-md items-center h-full">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">
+                About Us
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">
+                Privacy Policy
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">
+                Terms of Service
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">
+                Contact
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:opacity-80 transition-opacity" href="#">
+                Careers
+            </a>
+</div>
+<div class="col-span-12 mt-md pt-sm border-t border-outline-variant text-center text-on-surface-variant">
+            © 2024 Khamis Diet Delivery. All rights reserved.
+        </div>
+</footer>
+</body></html>
