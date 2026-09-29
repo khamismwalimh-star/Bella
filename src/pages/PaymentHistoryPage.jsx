@@ -18,14 +18,6 @@ export const PaymentHistoryPage = () => {
 
   return (
     <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-container-margin py-xl flex flex-col gap-xl">
-      {/* Subfolder Identifier */}
-      <div className="flex items-center gap-2">
-        <span className="font-label-sm uppercase tracking-wider text-secondary bg-surface-container px-2 py-0.5 rounded">
-          📁 Subfolder: payment_history
-        </span>
-        <span className="text-[11px] font-semibold text-primary">Billing & Invoices</span>
-      </div>
-
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 border-b border-outline-variant pb-md">
         <div>
@@ -36,7 +28,7 @@ export const PaymentHistoryPage = () => {
             Review past transactions, active billing methods, and download official medical invoices.
           </p>
         </div>
-        <div className="flex items-center gap-sm bg-surface-container px-3 py-1.5 rounded">
+        <div className="flex items-center gap-sm bg-surface-container px-3 py-1.5 rounded-lg">
           <span className="material-symbols-outlined text-primary text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>
             verified
           </span>
@@ -49,7 +41,7 @@ export const PaymentHistoryPage = () => {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
         {/* Next Billing */}
-        <div className="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col justify-between">
+        <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between shadow-sm">
           <span className="text-xs uppercase text-secondary font-semibold">Next Scheduled Billing</span>
           <div className="my-2">
             <p className="text-2xl font-bold text-on-background">$349.00</p>
@@ -59,7 +51,7 @@ export const PaymentHistoryPage = () => {
         </div>
 
         {/* Primary Method */}
-        <div className="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col justify-between">
+        <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between shadow-sm">
           <div className="flex justify-between items-start">
             <span className="text-xs uppercase text-secondary font-semibold">Default Payment Method</span>
             <span className="material-symbols-outlined text-primary">credit_card</span>
@@ -77,7 +69,7 @@ export const PaymentHistoryPage = () => {
         </div>
 
         {/* Insurance & HSA/FSA */}
-        <div className="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col justify-between">
+        <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between shadow-sm">
           <div className="flex justify-between items-start">
             <span className="text-xs uppercase text-secondary font-semibold">HSA / FSA Eligibility</span>
             <span className="material-symbols-outlined text-primary">receipt_long</span>
@@ -99,7 +91,7 @@ export const PaymentHistoryPage = () => {
       <section className="flex flex-col gap-md">
         <h2 className="font-headline-md text-xl font-bold text-on-background">Past Transactions</h2>
 
-        <div className="bg-surface-container-lowest border border-outline-variant rounded overflow-x-auto shadow-sm">
+        <div className="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-x-auto shadow-sm">
           <table className="w-full text-left border-collapse text-sm">
             <thead className="bg-surface-container-low border-b border-outline-variant text-xs">
               <tr>
@@ -128,7 +120,7 @@ export const PaymentHistoryPage = () => {
                     {item.amount}
                   </td>
                   <td className="py-3 px-md">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-primary-fixed text-on-primary-fixed rounded text-xs font-bold">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-primary-fixed text-on-primary-fixed rounded-full text-xs font-bold">
                       <span className="material-symbols-outlined text-[12px]">check</span>
                       {item.status}
                     </span>
@@ -136,7 +128,7 @@ export const PaymentHistoryPage = () => {
                   <td className="py-3 px-md text-right">
                     <button
                       onClick={() => handleDownloadInvoice(item.id)}
-                      className="inline-flex items-center gap-1 text-xs text-primary font-bold hover:bg-surface-container px-2 py-1 rounded transition-colors"
+                      className="inline-flex items-center gap-1 text-xs text-primary font-bold hover:bg-surface-container px-2.5 py-1 rounded-md transition-colors"
                     >
                       <span className="material-symbols-outlined text-[16px]">download</span>
                       PDF

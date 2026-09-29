@@ -4,14 +4,6 @@ import { Link } from 'react-router-dom';
 export const PlatformOverviewPage = () => {
   return (
     <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-container-margin py-xl flex flex-col gap-xl">
-      {/* Subfolder Identifier */}
-      <div className="flex items-center gap-2">
-        <span className="font-label-sm uppercase tracking-wider text-secondary bg-surface-container px-2 py-0.5 rounded">
-          📁 Subfolders: khamis_clinical_nutrition_platform & untitled_prototype
-        </span>
-        <span className="text-[11px] font-semibold text-primary">System Architecture & Capabilities</span>
-      </div>
-
       {/* Hero */}
       <section className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-xl flex flex-col md:flex-row items-center justify-between gap-lg">
         <div className="flex flex-col gap-md max-w-xl">
@@ -32,15 +24,15 @@ export const PlatformOverviewPage = () => {
           <div className="flex gap-sm pt-2">
             <Link
               to="/services"
-              className="bg-primary text-on-primary px-6 py-3 rounded font-label-sm uppercase font-bold text-xs hover:bg-primary-container"
+              className="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-sm uppercase font-bold text-xs hover:bg-primary-container"
             >
               Explore Services
             </Link>
             <Link
-              to="/admin"
-              className="border border-outline-variant px-6 py-3 rounded font-label-sm uppercase font-semibold text-xs hover:bg-surface-container"
+              to="/profile"
+              className="border border-outline-variant px-6 py-3 rounded-lg font-label-sm uppercase font-semibold text-xs hover:bg-surface-container text-on-surface"
             >
-              Admin Metrics
+              Patient Portal
             </Link>
           </div>
         </div>
@@ -74,7 +66,7 @@ export const PlatformOverviewPage = () => {
 
       {/* 4 Pillars Grid */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
-        <div className="p-md bg-surface border border-outline-variant rounded">
+        <div className="p-md bg-surface border border-outline-variant rounded-lg">
           <span className="material-symbols-outlined text-primary text-3xl mb-2" style={{ fontVariationSettings: "'FILL' 1" }}>
             database
           </span>
@@ -84,7 +76,7 @@ export const PlatformOverviewPage = () => {
           </p>
         </div>
 
-        <div className="p-md bg-surface border border-outline-variant rounded">
+        <div className="p-md bg-surface border border-outline-variant rounded-lg">
           <span className="material-symbols-outlined text-primary text-3xl mb-2" style={{ fontVariationSettings: "'FILL' 1" }}>
             nutrition
           </span>
@@ -94,7 +86,7 @@ export const PlatformOverviewPage = () => {
           </p>
         </div>
 
-        <div className="p-md bg-surface border border-outline-variant rounded">
+        <div className="p-md bg-surface border border-outline-variant rounded-lg">
           <span className="material-symbols-outlined text-primary text-3xl mb-2" style={{ fontVariationSettings: "'FILL' 1" }}>
             security
           </span>
@@ -104,7 +96,7 @@ export const PlatformOverviewPage = () => {
           </p>
         </div>
 
-        <div className="p-md bg-surface border border-outline-variant rounded">
+        <div className="p-md bg-surface border border-outline-variant rounded-lg">
           <span className="material-symbols-outlined text-primary text-3xl mb-2" style={{ fontVariationSettings: "'FILL' 1" }}>
             local_shipping
           </span>

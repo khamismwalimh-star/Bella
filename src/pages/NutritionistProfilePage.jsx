@@ -4,19 +4,11 @@ import { Link } from 'react-router-dom';
 export const NutritionistProfilePage = () => {
   return (
     <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-container-margin py-xl flex flex-col gap-xl">
-      {/* Subfolder Identifier */}
-      <div className="flex items-center gap-2">
-        <span className="font-label-sm uppercase tracking-wider text-secondary bg-surface-container px-2 py-0.5 rounded">
-          📁 Subfolder: nutritionist_profile
-        </span>
-        <span className="text-[11px] font-semibold text-primary">Clinical Specialist Directory</span>
-      </div>
-
       {/* Profile Header Bento */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
         {/* Main Profile Card */}
-        <div className="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col md:flex-row gap-md items-start">
-          <div className="w-32 h-32 md:w-48 md:h-48 rounded bg-surface-container flex-shrink-0 overflow-hidden relative border border-outline-variant">
+        <div className="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg flex flex-col md:flex-row gap-md items-start shadow-sm">
+          <div className="w-32 h-32 md:w-48 md:h-48 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden relative border border-outline-variant">
             <img
               alt="Dr. Sarah Jenkins"
               className="w-full h-full object-cover"
@@ -58,13 +50,13 @@ export const NutritionistProfilePage = () => {
             </div>
 
             <div className="mt-md flex flex-wrap gap-sm">
-              <span className="px-3 py-1 border border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded bg-surface font-semibold">
+              <span className="px-3 py-1 border border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded-full bg-surface font-semibold">
                 Metabolic Health
               </span>
-              <span className="px-3 py-1 border border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded bg-surface font-semibold">
+              <span className="px-3 py-1 border border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded-full bg-surface font-semibold">
                 Sports Nutrition
               </span>
-              <span className="px-3 py-1 border border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded bg-surface font-semibold">
+              <span className="px-3 py-1 border border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded-full bg-surface font-semibold">
                 Clinical Dietetics
               </span>
             </div>
@@ -72,7 +64,7 @@ export const NutritionistProfilePage = () => {
         </div>
 
         {/* Quick Action / Booking Teaser */}
-        <div className="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col justify-between">
+        <div className="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg flex flex-col justify-between shadow-sm">
           <div>
             <h3 className="font-headline-md text-xl font-bold text-on-surface mb-sm">Consultation</h3>
             <p className="font-body-md text-secondary text-sm mb-md">
@@ -90,7 +82,7 @@ export const NutritionistProfilePage = () => {
 
           <Link
             to="/booking"
-            className="w-full bg-primary text-on-primary font-label-sm text-center text-label-sm px-6 py-3.5 rounded hover:bg-primary-container transition-colors uppercase font-bold tracking-wider"
+            className="w-full bg-primary text-on-primary font-label-sm text-center text-label-sm px-6 py-3.5 rounded-lg hover:bg-primary-container transition-colors uppercase font-bold tracking-wider"
           >
             Book Consultation
           </Link>
@@ -100,7 +92,7 @@ export const NutritionistProfilePage = () => {
       {/* Secondary Info Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
         {/* Credentials & Experience */}
-        <div className="bg-surface-container-lowest border border-outline-variant rounded p-md">
+        <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg shadow-sm">
           <h3 className="font-headline-md text-xl font-bold text-on-surface mb-md pb-sm border-b border-outline-variant">
             Credentials & Education
           </h3>
@@ -130,18 +122,18 @@ export const NutritionistProfilePage = () => {
         </div>
 
         {/* Publications & Research */}
-        <div className="bg-surface-container-lowest border border-outline-variant rounded p-md">
+        <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg shadow-sm">
           <h3 className="font-headline-md text-xl font-bold text-on-surface mb-md pb-sm border-b border-outline-variant">
             Published Research & Focus
           </h3>
           <ul className="space-y-4">
-            <li className="p-3 bg-surface rounded border border-outline-variant/60">
+            <li className="p-3 bg-surface rounded-lg border border-outline-variant/60">
               <span className="text-[11px] font-bold text-primary uppercase tracking-wide">Journal of Clinical Endocrinology</span>
               <p className="font-semibold text-[14px] text-on-surface mt-1">
                 "Continuous Glucose Telemetry in Dietary Intervention Protocols" (2022)
               </p>
             </li>
-            <li className="p-3 bg-surface rounded border border-outline-variant/60">
+            <li className="p-3 bg-surface rounded-lg border border-outline-variant/60">
               <span className="text-[11px] font-bold text-primary uppercase tracking-wide">Metabolism & Nutrition Reports</span>
               <p className="font-semibold text-[14px] text-on-surface mt-1">
                 "Targeted Micronutrient Timing for Glycemic Control in High-Performance Patients" (2020)

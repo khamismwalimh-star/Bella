@@ -17,17 +17,17 @@ export const NutritionistDashboardPage = () => {
 
   return (
     <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-container-margin py-lg">
-      {/* Subfolder Identifier */}
-      <div className="flex items-center gap-2 mb-4">
-        <span className="font-label-sm uppercase tracking-wider text-secondary bg-surface-container px-2 py-0.5 rounded">
-          📁 Subfolder: nutritionist_dashboard
-        </span>
-        <span className="text-[11px] font-semibold text-primary">Specialist Management Portal</span>
-      </div>
-
       {/* Welcome Header & Quick Actions */}
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-md">
         <div>
+          <div className="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container rounded-full w-fit mb-2">
+            <span className="material-symbols-outlined text-primary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+              stethoscope
+            </span>
+            <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+              Clinician Portal
+            </span>
+          </div>
           <h1 className="font-headline-lg text-2xl md:text-headline-lg text-primary mb-xs font-bold">
             Good Morning, Dr. Sarah
           </h1>
@@ -38,13 +38,13 @@ export const NutritionistDashboardPage = () => {
         <div className="flex gap-sm w-full md:w-auto">
           <button
             onClick={() => addToast('Viewing all 42 clinical patients.')}
-            className="bg-surface text-primary border border-primary px-md py-sm rounded font-label-sm text-label-sm uppercase hover:bg-surface-container-low transition-colors flex-1 md:flex-none text-center font-bold"
+            className="bg-surface text-primary border border-primary px-md py-sm rounded-lg font-label-sm text-label-sm uppercase hover:bg-surface-container-low transition-colors flex-1 md:flex-none text-center font-bold"
           >
             Review All Plans
           </button>
           <button
             onClick={() => addToast('Opening client intake form modal...')}
-            className="bg-primary text-on-primary px-md py-sm rounded font-label-sm text-label-sm uppercase hover:opacity-90 transition-opacity flex-1 md:flex-none text-center flex items-center justify-center gap-xs font-bold"
+            className="bg-primary text-on-primary px-md py-sm rounded-lg font-label-sm text-label-sm uppercase hover:opacity-90 transition-opacity flex-1 md:flex-none text-center flex items-center justify-center gap-xs font-bold"
           >
             <span className="material-symbols-outlined text-[16px]">add</span> New Client
           </button>
@@ -54,7 +54,7 @@ export const NutritionistDashboardPage = () => {
       {/* Bento Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Schedule / Upcoming Appointments (Span 8) */}
-        <section className="md:col-span-8 bg-surface border border-outline-variant rounded p-md flex flex-col">
+        <section className="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg flex flex-col shadow-sm">
           <div className="flex justify-between items-center mb-md pb-sm border-b border-outline-variant">
             <h2 className="font-headline-md text-xl font-bold text-on-surface">Today's Schedule</h2>
             <span className="font-label-sm text-label-sm text-primary uppercase font-semibold">
@@ -64,9 +64,9 @@ export const NutritionistDashboardPage = () => {
 
           <div className="flex-grow flex flex-col gap-sm">
             {/* Appointment Item 1 */}
-            <div className="flex items-center justify-between p-3 border border-outline-variant rounded hover:bg-surface-container-low transition-colors">
+            <div className="flex items-center justify-between p-3.5 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors bg-surface">
               <div className="flex items-center gap-md">
-                <div className="flex flex-col items-center justify-center w-12 h-12 bg-surface-container rounded text-primary">
+                <div className="flex flex-col items-center justify-center w-12 h-12 bg-surface-container rounded-lg text-primary">
                   <span className="font-label-sm text-xs font-bold uppercase">9:00</span>
                   <span className="font-label-sm text-[10px] uppercase text-secondary">AM</span>
                 </div>
@@ -82,16 +82,16 @@ export const NutritionistDashboardPage = () => {
               </div>
               <button
                 onClick={() => setActiveCallModal('Michael Chen')}
-                className="bg-primary text-on-primary hover:bg-primary-container px-4 py-2 rounded font-label-sm text-xs font-bold transition-all"
+                className="bg-primary text-on-primary hover:bg-primary-container px-4 py-2 rounded-lg font-label-sm text-xs font-bold transition-all"
               >
                 Join Call
               </button>
             </div>
 
             {/* Appointment Item 2 */}
-            <div className="flex items-center justify-between p-3 border border-outline-variant rounded hover:bg-surface-container-low transition-colors">
+            <div className="flex items-center justify-between p-3.5 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors bg-surface">
               <div className="flex items-center gap-md">
-                <div className="flex flex-col items-center justify-center w-12 h-12 bg-surface-container rounded text-primary">
+                <div className="flex flex-col items-center justify-center w-12 h-12 bg-surface-container rounded-lg text-primary">
                   <span className="font-label-sm text-xs font-bold uppercase">11:30</span>
                   <span className="font-label-sm text-[10px] uppercase text-secondary">AM</span>
                 </div>
@@ -102,16 +102,16 @@ export const NutritionistDashboardPage = () => {
               </div>
               <button
                 onClick={() => addToast('Opening clinical patient chart for Elena Rodriguez.')}
-                className="text-secondary hover:text-on-surface border border-outline-variant px-4 py-2 rounded font-label-sm text-xs font-semibold"
+                className="text-secondary hover:text-on-surface border border-outline-variant px-4 py-2 rounded-lg font-label-sm text-xs font-semibold"
               >
                 Prepare File
               </button>
             </div>
 
             {/* Appointment Item 3 (Canceled) */}
-            <div className="flex items-center justify-between p-3 border border-outline-variant rounded hover:bg-surface-container-low transition-colors opacity-70">
+            <div className="flex items-center justify-between p-3.5 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors opacity-70 bg-surface">
               <div className="flex items-center gap-md">
-                <div className="flex flex-col items-center justify-center w-12 h-12 bg-surface-variant rounded text-secondary">
+                <div className="flex flex-col items-center justify-center w-12 h-12 bg-surface-variant rounded-lg text-secondary">
                   <span className="font-label-sm text-xs font-bold uppercase">2:00</span>
                   <span className="font-label-sm text-[10px] uppercase text-secondary">PM</span>
                 </div>
@@ -120,7 +120,7 @@ export const NutritionistDashboardPage = () => {
                   <p className="font-body-md text-secondary text-sm">Monthly Follow-up • Canceled by Patient</p>
                 </div>
               </div>
-              <span className="text-xs uppercase font-semibold text-secondary px-2 py-1 bg-surface-container rounded">
+              <span className="text-xs uppercase font-semibold text-secondary px-2.5 py-1 bg-surface-container rounded-md">
                 Rescheduled
               </span>
             </div>
@@ -130,7 +130,7 @@ export const NutritionistDashboardPage = () => {
         {/* Pending Approvals & Alerts (Span 4) */}
         <section className="md:col-span-4 flex flex-col gap-md">
           {/* Pending Reviews Card */}
-          <div className="bg-surface border border-outline-variant rounded p-md">
+          <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
             <div className="flex justify-between items-center mb-sm pb-sm border-b border-outline-variant">
               <h3 className="font-headline-md text-lg font-bold text-on-surface">Pending Meal Plans</h3>
               <span className="bg-tertiary-fixed text-on-tertiary-fixed text-[11px] font-bold px-2 py-0.5 rounded">
@@ -143,7 +143,7 @@ export const NutritionistDashboardPage = () => {
             ) : (
               <div className="space-y-3">
                 {pendingPlans.map(plan => (
-                  <div key={plan.id} className="p-3 bg-surface-container-low border border-outline-variant rounded">
+                  <div key={plan.id} className="p-3 bg-surface-container-low border border-outline-variant rounded-lg">
                     <div className="flex justify-between items-start">
                       <div>
                         <p className="font-bold text-[14px] text-on-surface">{plan.client}</p>
@@ -154,13 +154,13 @@ export const NutritionistDashboardPage = () => {
                     <div className="flex gap-2 mt-3">
                       <button
                         onClick={() => handleApprovePlan(plan.id, plan.client)}
-                        className="flex-1 bg-primary text-on-primary py-1.5 rounded text-xs font-bold hover:bg-primary-container"
+                        className="flex-1 bg-primary text-on-primary py-1.5 rounded-md text-xs font-bold hover:bg-primary-container"
                       >
                         Approve Plan
                       </button>
                       <button
                         onClick={() => addToast(`Opened custom editor for ${plan.client}`)}
-                        className="px-3 border border-outline-variant rounded text-xs text-secondary hover:text-primary"
+                        className="px-3 border border-outline-variant rounded-md text-xs text-secondary hover:text-primary"
                       >
                         Edit
                       </button>
@@ -172,7 +172,7 @@ export const NutritionistDashboardPage = () => {
           </div>
 
           {/* Quick Biomarker Stat Card */}
-          <div className="bg-primary text-on-primary rounded p-md flex flex-col justify-between">
+          <div className="bg-primary text-on-primary rounded-xl p-md flex flex-col justify-between shadow-sm">
             <span className="text-xs uppercase tracking-widest text-primary-fixed-dim font-bold">
               Cohort Glycemic Trends
             </span>
@@ -211,7 +211,7 @@ export const NutritionistDashboardPage = () => {
                 setActiveCallModal(null);
                 addToast('Telehealth session completed and notes logged.');
               }}
-              className="flex-1 bg-error text-on-error py-2.5 rounded font-label-sm uppercase font-bold"
+              className="flex-1 bg-error text-on-error py-2.5 rounded-lg font-label-sm uppercase font-bold"
             >
               End Consultation
             </button>

@@ -9,12 +9,12 @@ export const CheckoutPage = () => {
 
   const [paymentMethod, setPaymentMethod] = useState('card');
   const [addressForm, setAddressForm] = useState({
-    firstName: user.name.split(' ')[0] || 'John',
-    lastName: user.name.split(' ')[1] || 'Doe',
-    address: user.address || '742 Evergreen Terrace, Suite 104',
-    city: user.city || 'San Francisco',
-    zip: user.zip || '94107',
-    phone: user.phone || '+1 (555) 019-2834'
+    firstName: user?.name ? user.name.split(' ')[0] : 'John',
+    lastName: user?.name ? user.name.split(' ')[1] || 'Doe' : 'Doe',
+    address: user?.address || '742 Evergreen Terrace, Suite 104',
+    city: user?.city || 'San Francisco',
+    zip: user?.zip || '94107',
+    phone: user?.phone || '+1 (555) 019-2834'
   });
 
   const [cardForm, setCardForm] = useState({
@@ -51,20 +51,22 @@ export const CheckoutPage = () => {
 
   return (
     <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-container-margin py-xl flex flex-col gap-xl">
-      {/* Subfolder Identifier */}
-      <div className="flex items-center gap-2">
-        <span className="font-label-sm uppercase tracking-wider text-secondary bg-surface-container px-2 py-0.5 rounded">
-          📁 Subfolder: checkout
-        </span>
-        <span className="text-[11px] font-semibold text-primary">High-Security Clinical Checkout</span>
-      </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl">
         {/* Left Column: Forms */}
         <div className="lg:col-span-7 flex flex-col gap-lg">
-          <h1 className="font-headline-lg text-2xl md:text-headline-lg font-bold text-on-surface">
-            Secure Checkout
-          </h1>
+          <div>
+            <div className="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container rounded-full w-fit mb-2">
+              <span className="material-symbols-outlined text-primary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+                lock
+              </span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+                256-Bit SSL Encrypted
+              </span>
+            </div>
+            <h1 className="font-headline-lg text-2xl md:text-headline-lg font-bold text-on-surface">
+              Secure Clinical Checkout
+            </h1>
+          </div>
 
           {/* Delivery Address Form */}
           <section className="bg-surface-container-lowest p-md md:p-lg rounded-xl border border-outline-variant shadow-sm">
@@ -79,7 +81,7 @@ export const CheckoutPage = () => {
                   type="text"
                   value={addressForm.firstName}
                   onChange={e => setAddressForm({ ...addressForm, firstName: e.target.value })}
-                  className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
+                  className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -89,7 +91,7 @@ export const CheckoutPage = () => {
                   type="text"
                   value={addressForm.lastName}
                   onChange={e => setAddressForm({ ...addressForm, lastName: e.target.value })}
-                  className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
+                  className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -99,7 +101,7 @@ export const CheckoutPage = () => {
                   type="text"
                   value={addressForm.address}
                   onChange={e => setAddressForm({ ...addressForm, address: e.target.value })}
-                  className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
+                  className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -109,7 +111,7 @@ export const CheckoutPage = () => {
                   type="text"
                   value={addressForm.city}
                   onChange={e => setAddressForm({ ...addressForm, city: e.target.value })}
-                  className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
+                  className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -119,7 +121,7 @@ export const CheckoutPage = () => {
                   type="text"
                   value={addressForm.zip}
                   onChange={e => setAddressForm({ ...addressForm, zip: e.target.value })}
-                  className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
+                  className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -129,7 +131,7 @@ export const CheckoutPage = () => {
                   type="tel"
                   value={addressForm.phone}
                   onChange={e => setAddressForm({ ...addressForm, phone: e.target.value })}
-                  className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
+                  className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface w-full focus:outline-none focus:border-primary"
                 />
               </div>
             </form>
@@ -144,7 +146,7 @@ export const CheckoutPage = () => {
 
             <div className="flex flex-col gap-sm">
               {/* Credit Card Option */}
-              <label className={`flex items-start p-md border rounded-lg cursor-pointer transition-all ${
+              <label className={`flex items-start p-md border rounded-xl cursor-pointer transition-all ${
                 paymentMethod === 'card' ? 'border-primary bg-surface-container-low' : 'border-outline-variant hover:border-outline'
               }`}>
                 <div className="flex items-center h-5 mt-1">
@@ -166,7 +168,7 @@ export const CheckoutPage = () => {
                           type="text"
                           value={cardForm.number}
                           onChange={e => setCardForm({ ...cardForm, number: e.target.value })}
-                          className="w-full border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface pl-10 focus:outline-none focus:border-primary"
+                          className="w-full border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface pl-10 focus:outline-none focus:border-primary"
                         />
                         <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">
                           credit_card
@@ -180,7 +182,7 @@ export const CheckoutPage = () => {
                         type="text"
                         value={cardForm.expiry}
                         onChange={e => setCardForm({ ...cardForm, expiry: e.target.value })}
-                        className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface focus:outline-none focus:border-primary"
+                        className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface focus:outline-none focus:border-primary"
                       />
                     </div>
 
@@ -190,7 +192,7 @@ export const CheckoutPage = () => {
                         type="text"
                         value={cardForm.cvc}
                         onChange={e => setCardForm({ ...cardForm, cvc: e.target.value })}
-                        className="border border-outline-variant rounded p-2.5 bg-surface font-body-md text-sm text-on-surface focus:outline-none focus:border-primary"
+                        className="border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-sm text-on-surface focus:outline-none focus:border-primary"
                       />
                     </div>
                   </div>
@@ -198,7 +200,7 @@ export const CheckoutPage = () => {
               </label>
 
               {/* Apple Pay Option */}
-              <label className={`flex items-center p-md border rounded-lg cursor-pointer transition-all ${
+              <label className={`flex items-center p-md border rounded-xl cursor-pointer transition-all ${
                 paymentMethod === 'apple_pay' ? 'border-primary bg-surface-container-low' : 'border-outline-variant hover:border-outline'
               }`}>
                 <input
@@ -214,7 +216,7 @@ export const CheckoutPage = () => {
               </label>
 
               {/* HSA / FSA Card Option */}
-              <label className={`flex items-center p-md border rounded-lg cursor-pointer transition-all ${
+              <label className={`flex items-center p-md border rounded-xl cursor-pointer transition-all ${
                 paymentMethod === 'hsa' ? 'border-primary bg-surface-container-low' : 'border-outline-variant hover:border-outline'
               }`}>
                 <input
@@ -240,7 +242,7 @@ export const CheckoutPage = () => {
             </h2>
 
             {/* Selected Plan Details */}
-            <div className="p-3 bg-surface-container-low rounded border border-outline-variant mb-md">
+            <div className="p-3.5 bg-surface-container-low rounded-xl border border-outline-variant mb-md">
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="font-bold text-[15px] text-primary">{selectedPlan.name}</h3>
@@ -264,12 +266,12 @@ export const CheckoutPage = () => {
                 placeholder="Promo Code (e.g. CLINICAL10)"
                 value={promoCode}
                 onChange={e => setPromoCode(e.target.value)}
-                className="flex-1 border border-outline-variant rounded p-2 text-xs bg-surface font-mono uppercase focus:outline-none focus:border-primary"
+                className="flex-1 border border-outline-variant rounded-lg p-2.5 text-xs bg-surface font-mono uppercase focus:outline-none focus:border-primary"
               />
               <button
                 type="button"
                 onClick={handleApplyPromo}
-                className="px-3 bg-surface-container border border-outline-variant text-primary rounded text-xs font-bold hover:bg-surface-container-high"
+                className="px-4 bg-surface-container border border-outline-variant text-primary rounded-lg text-xs font-bold hover:bg-surface-container-high"
               >
                 Apply
               </button>
@@ -305,7 +307,7 @@ export const CheckoutPage = () => {
             <button
               onClick={handlePlaceOrder}
               disabled={isProcessing}
-              className="w-full bg-primary text-on-primary py-4 rounded font-label-sm uppercase font-bold tracking-wider hover:bg-primary-container transition-all flex items-center justify-center gap-2"
+              className="w-full bg-primary text-on-primary py-4 rounded-lg font-label-sm uppercase font-bold tracking-wider hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-sm"
             >
               {isProcessing ? (
                 <>
@@ -347,7 +349,7 @@ export const CheckoutPage = () => {
               Your subscription for <strong>{selectedPlan.name}</strong> is now active.
             </p>
           </div>
-          <div className="p-3 bg-surface-container rounded text-left text-xs w-full space-y-1">
+          <div className="p-3 bg-surface-container rounded-lg text-left text-xs w-full space-y-1">
             <p><strong>First Delivery Scheduled:</strong> Friday at 7:00 AM</p>
             <p><strong>Delivery Address:</strong> {addressForm.address}, {addressForm.city} {addressForm.zip}</p>
             <p><strong>Dietitian Review:</strong> Dr. Sarah Jenkins has received your biomarker file.</p>
@@ -359,7 +361,7 @@ export const CheckoutPage = () => {
                 addToast('Welcome! Check your patient portal for telemetry and delivery tracking.');
                 navigate('/profile');
               }}
-              className="flex-1 bg-primary text-on-primary py-2.5 rounded font-label-sm uppercase font-bold"
+              className="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-label-sm uppercase font-bold"
             >
               Go to Patient Portal
             </button>
@@ -368,7 +370,7 @@ export const CheckoutPage = () => {
                 setOrderSuccessModal(false);
                 navigate('/payments');
               }}
-              className="px-4 border border-outline-variant rounded font-label-sm uppercase"
+              className="px-4 border border-outline-variant rounded-lg font-label-sm uppercase"
             >
               View Invoices
             </button>

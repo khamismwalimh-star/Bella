@@ -37,11 +37,13 @@ export const ConsultationBookingPage = () => {
     <main className="flex-grow max-w-[1440px] mx-auto w-full px-4 md:px-container-margin py-xl flex flex-col gap-xl">
       {/* Header Section */}
       <header className="flex flex-col gap-base border-b border-outline-variant pb-lg">
-        <div className="flex items-center gap-2">
-          <span className="font-label-sm uppercase tracking-wider text-secondary bg-surface-container px-2 py-0.5 rounded">
-            📁 Subfolder: consultation_booking
+        <div className="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container rounded-full w-fit">
+          <span className="material-symbols-outlined text-primary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+            verified
           </span>
-          <span className="text-[11px] font-semibold text-primary">Telehealth & Clinical Office</span>
+          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+            Telehealth & Clinical Scheduling
+          </span>
         </div>
         <h1 className="font-display-xl text-3xl md:text-5xl lg:text-display-xl text-primary font-bold">
           Book a Clinical Consultation
@@ -56,7 +58,7 @@ export const ConsultationBookingPage = () => {
         {/* Booking Flow (Left Column) */}
         <div className="lg:col-span-7 flex flex-col gap-lg">
           {/* Consultation Type */}
-          <section className="border border-outline-variant rounded-lg p-md bg-surface flex flex-col gap-md">
+          <section className="border border-outline-variant rounded-xl p-md md:p-lg bg-surface flex flex-col gap-md">
             <h2 className="font-headline-md text-xl md:text-headline-md text-primary font-semibold">
               1. Consultation Type
             </h2>
@@ -64,7 +66,7 @@ export const ConsultationBookingPage = () => {
               {/* Video Call */}
               <div
                 onClick={() => setSelectedType('video')}
-                className={`border-2 rounded p-md flex flex-col gap-sm cursor-pointer relative transition-all ${
+                className={`border-2 rounded-xl p-md flex flex-col gap-sm cursor-pointer relative transition-all ${
                   selectedType === 'video'
                     ? 'border-primary bg-surface-container-low shadow-sm'
                     : 'border-outline-variant hover:border-outline'
@@ -87,7 +89,7 @@ export const ConsultationBookingPage = () => {
               {/* In-Clinic Visit */}
               <div
                 onClick={() => setSelectedType('clinic')}
-                className={`border-2 rounded p-md flex flex-col gap-sm cursor-pointer relative transition-all ${
+                className={`border-2 rounded-xl p-md flex flex-col gap-sm cursor-pointer relative transition-all ${
                   selectedType === 'clinic'
                     ? 'border-primary bg-surface-container-low shadow-sm'
                     : 'border-outline-variant hover:border-outline'
@@ -110,7 +112,7 @@ export const ConsultationBookingPage = () => {
           </section>
 
           {/* Date & Time Slot Selection */}
-          <section className="border border-outline-variant rounded-lg p-md bg-surface flex flex-col gap-md">
+          <section className="border border-outline-variant rounded-xl p-md md:p-lg bg-surface flex flex-col gap-md">
             <h2 className="font-headline-md text-xl md:text-headline-md text-primary font-semibold">
               2. Select Date & Time
             </h2>
@@ -123,7 +125,7 @@ export const ConsultationBookingPage = () => {
                 type="date"
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
-                className="w-full sm:w-64 border border-outline-variant rounded p-2.5 bg-surface font-body-md text-on-surface focus:outline-none focus:border-primary"
+                className="w-full sm:w-64 border border-outline-variant rounded-lg p-2.5 bg-surface font-body-md text-on-surface focus:outline-none focus:border-primary"
               />
             </div>
 
@@ -137,7 +139,7 @@ export const ConsultationBookingPage = () => {
                     key={slot.time}
                     disabled={!slot.available}
                     onClick={() => setSelectedSlot(slot.time)}
-                    className={`py-2.5 px-3 rounded text-center text-sm font-semibold border transition-all ${
+                    className={`py-2.5 px-3 rounded-lg text-center text-sm font-semibold border transition-all ${
                       !slot.available
                         ? 'opacity-40 cursor-not-allowed border-outline-variant bg-surface-container line-through text-secondary'
                         : selectedSlot === slot.time
@@ -153,7 +155,7 @@ export const ConsultationBookingPage = () => {
           </section>
 
           {/* Medical Notes */}
-          <section className="border border-outline-variant rounded-lg p-md bg-surface flex flex-col gap-md">
+          <section className="border border-outline-variant rounded-xl p-md md:p-lg bg-surface flex flex-col gap-md">
             <h2 className="font-headline-md text-xl md:text-headline-md text-primary font-semibold">
               3. Clinical Notes & Objectives
             </h2>
@@ -162,7 +164,7 @@ export const ConsultationBookingPage = () => {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Describe your health metrics, current dietary habits, or blood work results to discuss..."
-              className="w-full border border-outline-variant rounded p-3 bg-surface font-body-md text-on-surface focus:outline-none focus:border-primary"
+              className="w-full border border-outline-variant rounded-lg p-3 bg-surface font-body-md text-on-surface focus:outline-none focus:border-primary"
             />
           </section>
         </div>
@@ -170,7 +172,7 @@ export const ConsultationBookingPage = () => {
         {/* Right Column: Specialist Summary & Booking Confirm */}
         <div className="lg:col-span-5 flex flex-col gap-md">
           {/* Specialist Card */}
-          <div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col gap-md">
+          <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg flex flex-col gap-md shadow-sm sticky top-24">
             <div className="flex items-center gap-md pb-md border-b border-outline-variant">
               <div className="w-16 h-16 rounded-full overflow-hidden border border-outline-variant flex-shrink-0">
                 <img
@@ -224,7 +226,7 @@ export const ConsultationBookingPage = () => {
 
             <button
               onClick={handleConfirm}
-              className="w-full bg-primary text-on-primary py-3.5 rounded font-label-sm uppercase font-bold tracking-wider hover:bg-primary-container transition-colors"
+              className="w-full bg-primary text-on-primary py-3.5 rounded-lg font-label-sm uppercase font-bold tracking-wider hover:bg-primary-container transition-colors shadow-xs"
             >
               Confirm Appointment
             </button>
@@ -259,7 +261,7 @@ export const ConsultationBookingPage = () => {
               Your appointment is set for <strong>{selectedDate}</strong> at <strong>{selectedSlot}</strong>.
             </p>
           </div>
-          <div className="p-3 bg-surface-container rounded text-left text-xs w-full space-y-1">
+          <div className="p-3 bg-surface-container rounded-lg text-left text-xs w-full space-y-1">
             <p><strong>Appointment Mode:</strong> {selectedType === 'video' ? 'Secure Telehealth Link (sent via email)' : 'Main Clinic Center, Suite 400'}</p>
             <p><strong>Notes:</strong> {notes || 'No special medical notes provided.'}</p>
           </div>
@@ -270,13 +272,13 @@ export const ConsultationBookingPage = () => {
                 addToast('Appointment added to your health portal calendar!');
                 navigate('/nutritionist-dashboard');
               }}
-              className="flex-1 bg-primary text-on-primary py-2.5 rounded font-label-sm uppercase font-bold"
+              className="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-label-sm uppercase font-bold"
             >
               View in Doctor Portal
             </button>
             <button
               onClick={() => setIsModalOpen(false)}
-              className="px-4 border border-outline-variant rounded font-label-sm uppercase"
+              className="px-4 border border-outline-variant rounded-lg font-label-sm uppercase"
             >
               Close
             </button>
