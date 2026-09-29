@@ -68,8 +68,8 @@ export const OurServicesPage = () => {
       deliveryFee: 0,
       features: tier.features
     });
-    addToast(`Selected ${tier.name}! Proceeding to checkout.`);
-    navigate('/checkout');
+    addToast(`Selected ${tier.name}! Create your account to enroll.`);
+    navigate('/signup');
   };
 
   return (

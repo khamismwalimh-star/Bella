@@ -14,7 +14,6 @@ import { NutritionistProfilePage } from './pages/NutritionistProfilePage';
 import { NutritionistDashboardPage } from './pages/NutritionistDashboardPage';
 import { UserProfilePage } from './pages/UserProfilePage';
 import { PaymentHistoryPage } from './pages/PaymentHistoryPage';
-import { CheckoutPage } from './pages/CheckoutPage';
 import { PlatformOverviewPage } from './pages/PlatformOverviewPage';
 import { DesignSystemPage } from './pages/DesignSystemPage';
 import { LoginPage } from './pages/LoginPage';
@@ -50,11 +49,11 @@ function App() {
               <Route path="/nutritionist-dashboard" element={<NutritionistDashboardPage />} />
               <Route path="/profile" element={<UserProfilePage />} />
               <Route path="/payments" element={<PaymentHistoryPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/platform" element={<PlatformOverviewPage />} />
               <Route path="/prototype" element={<PlatformOverviewPage />} />
               <Route path="/design-system" element={<DesignSystemPage />} />
-              {/* Redirect legacy /admin to login */}
+              {/* Redirect legacy routes */}
+              <Route path="/checkout" element={<Navigate to="/signup" replace />} />
               <Route path="/admin" element={<Navigate to="/login" replace />} />
               <Route path="*" element={<HomePage />} />
             </Routes>
