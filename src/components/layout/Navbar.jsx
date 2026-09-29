@@ -179,13 +179,6 @@ export const Navbar = () => {
               </Link>
             </div>
           )}
-
-          <Link
-            to="/checkout"
-            className="font-label-sm text-label-sm bg-primary text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors scale-95 active:scale-90 font-bold"
-          >
-            Get Started
-          </Link>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -295,14 +288,6 @@ export const Navbar = () => {
                 </Link>
               </div>
             )}
-
-            <Link
-              to="/checkout"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center bg-primary text-on-primary py-3 rounded-lg font-label-sm uppercase mt-2 font-bold"
-            >
-              Get Started
-            </Link>
           </div>
         </div>
       )}
