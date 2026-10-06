@@ -3,111 +3,121 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 
 export const OurServicesPage = () => {
-  const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' | 'quarterly'
-  const { setSelectedPlan, addToast } = useApp();
+  const [billingCycle, setBillingCycle] = useState('monthly');
+  const { setSelectedPlan, addToast, isAuthenticated } = useApp();
   const navigate = useNavigate();
 
-  const pricingTiers = [
+  const serviceTiers = [
     {
-      id: 'essential',
-      name: 'Essential Care',
-      tagline: 'Foundational clinical meal delivery for sustained energy and wellness.',
-      priceMonthly: 199,
-      priceQuarterly: 179,
-      badge: 'Starter',
+      id: 'tier_essential',
+      name: 'Essential Clinical Care',
+      badge: 'Baseline Therapy',
+      popular: false,
+      priceMonthly: 240,
+      priceQuarterly: 216,
+      tagline: 'Standard biomarker calibration & dietitian consultation',
       features: [
-        '5 Chef-prepared clinical lunches / week',
-        'Standard macro balancing',
-        'Weekly digital progress report',
-        'Access to nutrition resource library'
-      ],
-      popular: false
+        'Bi-weekly clinical consultation (30 min)',
+        'Biomarker analysis & diet mapping',
+        'Direct messaging with assigned RDN',
+        'Daily clinical meal delivery (5 days/wk)',
+        'Quarterly blood panel review'
+      ]
     },
     {
-      id: 'clinical_precision',
-      name: 'Clinical Precision',
-      tagline: 'Comprehensive metabolic care with dedicated dietitian oversight.',
-      priceMonthly: 349,
-      priceQuarterly: 319,
+      id: 'tier_precision',
+      name: 'Precision Metabolic Protocol',
       badge: 'Most Popular',
+      popular: true,
+      priceMonthly: 380,
+      priceQuarterly: 342,
+      tagline: 'Full continuous biometric integration with chef meals',
       features: [
-        '10 Chef-prepared meals (Lunch & Dinner) / week',
-        'Biomarker & blood panel customization',
-        'Bi-weekly 1:1 consultation with Dr. Sarah Jenkins',
-        'Continuous glucose tracking data sync',
-        'Free priority temperature-controlled delivery'
-      ],
-      popular: true
+        'Weekly 1-on-1 specialist consults',
+        'Continuous glucose telemetry sync',
+        'Daily clinical meal delivery (7 days/wk)',
+        'Custom micronutrient supplementation',
+        'Emergency dietary adjustments & chat',
+        'Priority lab ordering & prescription support'
+      ]
     },
     {
-      id: 'complete_care',
-      name: 'Concierge Health',
-      tagline: 'Full spectrum clinical optimization with unlimited direct specialist access.',
-      priceMonthly: 599,
-      priceQuarterly: 549,
-      badge: 'Comprehensive',
+      id: 'tier_executive',
+      name: 'Executive Longevity Protocol',
+      badge: 'Comprehensive Suite',
+      popular: false,
+      priceMonthly: 620,
+      priceQuarterly: 558,
+      tagline: 'Complete medical concierge & metabolic bio-optimization',
       features: [
-        '21 Gourmet clinical meals (Breakfast, Lunch, Dinner) / week',
-        'Weekly video consultations with lead dietitian',
-        'Real-time wearable telemetry & biomarker monitoring',
-        'Personalized nutraceutical & micronutrient pack',
-        'Direct 24/7 dietitian concierge chat'
-      ],
-      popular: false
+        '24/7 dedicated dietitian on-call',
+        'Full bespoke chef meal customization',
+        'Comprehensive lipid & hormone monitoring',
+        'At-home phlebotomy & testing kit',
+        'Family metabolic profiling included',
+        'Concierge clinician coordination'
+      ]
     }
   ];
 
-  const handleSelectPlan = (tier) => {
-    const price = billingCycle === 'monthly' ? tier.priceMonthly : tier.priceQuarterly;
+  const handleSelectService = (tier) => {
     setSelectedPlan({
       id: tier.id,
       name: tier.name,
-      cadence: billingCycle === 'monthly' ? 'Monthly Delivery' : 'Quarterly Delivery (Saved 10%)',
-      price: price,
-      discount: 0,
-      deliveryFee: 0,
-      features: tier.features
+      price: billingCycle === 'monthly' ? tier.priceMonthly : tier.priceQuarterly,
+      billingCycle
     });
-    addToast(`Selected ${tier.name}! Create your account to enroll.`);
-    navigate('/signup');
+    addToast(`Selected ${tier.name} protocol.`);
+    if (isAuthenticated) {
+      navigate('/booking');
+    } else {
+      navigate('/signup');
+    }
   };
 
   return (
-    <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-container-margin py-xl flex flex-col gap-xl">
+    <main className="flex-grow flex flex-col w-full max-w-[1440px] mx-auto px-4 md:px-container-margin py-lg md:py-xl gap-xl">
       {/* Header Section */}
-      <header className="text-center max-w-3xl mx-auto flex flex-col gap-md">
-        <span className="font-label-sm uppercase tracking-widest text-primary bg-surface-container px-3 py-1 rounded-full w-fit mx-auto">
-          Medical Grade Standards
-        </span>
-        <h1 className="font-headline-lg-mobile md:font-headline-lg text-3xl md:text-headline-lg text-on-background font-bold">
-          Clinical Precision, Delivered.
+      <section className="flex flex-col gap-sm max-w-3xl">
+        <div className="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container rounded-full w-fit">
+          <span className="material-symbols-outlined text-primary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+            medical_services
+          </span>
+          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+            Clinical Services
+          </span>
+        </div>
+        <h1 className="font-headline-lg text-3xl sm:text-4xl md:text-headline-lg text-on-surface font-bold">
+          Precision Clinical Nutrition Services
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">
-          Elevate your nutritional strategy with our evidence-based consultation, personalized planning, and seamless meal delivery services.
+          Physician-backed nutrition therapy, continuous metabolic monitoring, and chef-crafted clinical meal delivery.
         </p>
-      </header>
+      </section>
 
-      {/* Core Offerings (Bento Grid Style) */}
+      {/* Services Grid Bento */}
       <section className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-        {/* Offering 1: Consultation (Large Span) */}
-        <div className="md:col-span-8 bg-surface-container-lowest border border-outline-variant p-lg flex flex-col justify-between rounded-lg min-h-[380px] relative overflow-hidden group hover:border-primary transition-all">
-          <div className="z-10 relative flex flex-col gap-md max-w-md">
-            <div className="w-12 h-12 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+        {/* Offering 1: 1-on-1 Telehealth (Large Span) */}
+        <div className="md:col-span-8 bg-surface-container-low border border-outline-variant p-lg flex flex-col justify-between rounded-lg relative overflow-hidden min-h-[380px]">
+          <div className="flex flex-col gap-md max-w-md z-10">
+            <div className="w-12 h-12 rounded-lg bg-surface-container text-primary flex items-center justify-center">
               <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>
-                medical_services
+                video_camera_front
               </span>
             </div>
-            <h2 className="font-headline-md text-2xl md:text-headline-md text-on-background font-bold">
-              1:1 Clinical Consultation
+            <h2 className="font-headline-md text-2xl md:text-headline-md font-bold text-on-background">
+              1-on-1 Clinical Consultations
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant">
-              In-depth assessment with certified dietitians to analyze your metabolic profile, define health objectives, and establish a foundational nutritional baseline.
+              Meet directly with registered dietitians specialized in metabolic health, glycemic regulation, cardiovascular wellness, and GI recovery.
             </p>
+          </div>
+          <div className="z-10 mt-6">
             <Link
               to="/booking"
-              className="font-label-sm text-label-sm text-primary uppercase flex items-center gap-xs w-fit group-hover:underline mt-sm font-semibold"
+              className="bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded hover:bg-primary-container transition-colors inline-flex items-center gap-2 font-semibold"
             >
-              Book Session <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              Book Specialist Session <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           </div>
           <div
@@ -118,7 +128,7 @@ export const OurServicesPage = () => {
           />
         </div>
 
-        {/* Offering 2: Custom Diet Plans (Small Span) */}
+        {/* Offering 2: Custom Diet Protocols (Small Span) */}
         <div className="md:col-span-4 bg-surface-container-lowest border border-outline-variant p-md flex flex-col justify-between rounded-lg min-h-[380px] hover:border-primary transition-all">
           <div className="flex flex-col gap-md">
             <div className="w-12 h-12 rounded-lg bg-surface-container text-primary flex items-center justify-center">
@@ -127,7 +137,7 @@ export const OurServicesPage = () => {
               </span>
             </div>
             <h3 className="font-headline-md text-xl md:text-2xl font-bold text-on-background">
-              Custom Diet Plans
+              Personalized Nutrition Protocols
             </h3>
             <p className="font-body-md text-body-md text-on-surface-variant">
               Algorithmic and expert-reviewed macro/micro nutrient mapping tailored precisely to your physiological requirements and allergies.
@@ -156,7 +166,7 @@ export const OurServicesPage = () => {
           </div>
           <div className="mt-md md:mt-0 z-10">
             <button
-              onClick={() => handleSelectPlan(pricingTiers[1])}
+              onClick={() => handleSelectService(serviceTiers[1])}
               className="bg-surface text-primary font-label-sm text-label-sm px-8 py-3.5 rounded hover:bg-surface-container-low transition-colors font-semibold"
             >
               Order Precision Meals
@@ -165,14 +175,14 @@ export const OurServicesPage = () => {
         </div>
       </section>
 
-      {/* Pricing Tiers Section */}
+      {/* Clinical Programs & Packages Section */}
       <section className="flex flex-col gap-lg pt-lg border-t border-outline-variant">
         <div className="text-center flex flex-col gap-sm items-center">
           <h2 className="font-headline-lg text-3xl md:text-headline-lg text-primary font-bold">
-            Transparent Clinical Plans
+            Clinical Care Programs & Telehealth
           </h2>
           <p className="font-body-lg text-secondary max-w-xl">
-            Choose the precision tier aligned with your health biomarkers and consultation needs.
+            Choose the precision clinical program aligned with your health biomarkers and consultation needs.
           </p>
 
           {/* Billing Cycle Toggle */}
@@ -183,7 +193,7 @@ export const OurServicesPage = () => {
                 billingCycle === 'monthly' ? 'bg-primary text-on-primary shadow-sm' : 'text-secondary hover:text-primary'
               }`}
             >
-              Monthly Billing
+              Monthly Program
             </button>
             <button
               onClick={() => setBillingCycle('quarterly')}
@@ -199,9 +209,9 @@ export const OurServicesPage = () => {
           </div>
         </div>
 
-        {/* Pricing Cards Grid */}
+        {/* Program Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-          {pricingTiers.map((tier) => {
+          {serviceTiers.map((tier) => {
             const price = billingCycle === 'monthly' ? tier.priceMonthly : tier.priceQuarterly;
             return (
               <div
@@ -247,14 +257,14 @@ export const OurServicesPage = () => {
                 </div>
 
                 <button
-                  onClick={() => handleSelectPlan(tier)}
+                  onClick={() => handleSelectService(tier)}
                   className={`w-full py-3.5 rounded font-label-sm uppercase tracking-wider text-center font-bold transition-all ${
                     tier.popular
                       ? 'bg-primary text-on-primary hover:bg-primary-container'
                       : 'border border-primary text-primary hover:bg-surface-container-low'
                   }`}
                 >
-                  Select {tier.name}
+                  Enroll in {tier.name}
                 </button>
               </div>
             );

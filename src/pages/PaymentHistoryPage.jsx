@@ -5,10 +5,10 @@ export const PaymentHistoryPage = () => {
   const { addToast } = useApp();
 
   const transactions = [
-    { id: 'INV-2026-0801', date: 'Aug 01, 2026', plan: 'Clinical Precision Plan (Monthly)', amount: '$349.00', status: 'Paid', method: 'Visa •••• 4242' },
-    { id: 'INV-2026-0701', date: 'Jul 01, 2026', plan: 'Clinical Precision Plan (Monthly)', amount: '$349.00', status: 'Paid', method: 'Visa •••• 4242' },
+    { id: 'INV-2026-0801', date: 'Aug 01, 2026', plan: 'Clinical Precision Service (Monthly)', amount: '$349.00', status: 'Paid', method: 'Visa •••• 4242' },
+    { id: 'INV-2026-0701', date: 'Jul 01, 2026', plan: 'Clinical Precision Service (Monthly)', amount: '$349.00', status: 'Paid', method: 'Visa •••• 4242' },
     { id: 'INV-2026-0615', date: 'Jun 15, 2026', plan: 'Specialist Consultation (Dr. Sarah Jenkins)', amount: '$120.00', status: 'Paid', method: 'Apple Pay' },
-    { id: 'INV-2026-0601', date: 'Jun 01, 2026', plan: 'Essential Care Plan (Monthly)', amount: '$199.00', status: 'Paid', method: 'Visa •••• 4242' },
+    { id: 'INV-2026-0601', date: 'Jun 01, 2026', plan: 'Essential Care Service (Monthly)', amount: '$199.00', status: 'Paid', method: 'Visa •••• 4242' },
     { id: 'INV-2026-0501', date: 'May 01, 2026', plan: 'Initial Metabolic Biomarker Intake Kit', amount: '$85.00', status: 'Paid', method: 'Visa •••• 4242' }
   ];
 

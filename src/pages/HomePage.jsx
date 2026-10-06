@@ -25,19 +25,19 @@ export const HomePage = () => {
           </h1>
 
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-            Evidence-based meal plans designed by certified dietitians. Tailored to your specific health metrics and delivered fresh to your door daily. Precision health, simplified.
+            Evidence-based clinical nutrition protocols designed by certified dietitians. Tailored to your specific health metrics and delivered fresh to your door daily. Precision health, simplified.
           </p>
 
           <div className="flex flex-wrap items-center gap-md pt-sm">
             <Link
               to="/services"
-              className="bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded hover:bg-primary-container transition-colors tracking-wide text-center"
+              className="bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded hover:bg-primary-container transition-colors tracking-wide text-center font-bold shadow-sm"
             >
-              View Meal Plans
+              Explore Services
             </Link>
             <Link
               to="/booking"
-              className="border border-outline font-label-sm text-label-sm px-8 py-4 rounded text-on-surface hover:bg-surface-container-low transition-colors tracking-wide text-center"
+              className="border border-outline font-label-sm text-label-sm px-8 py-4 rounded text-on-surface hover:bg-surface-container-low transition-colors tracking-wide text-center font-semibold"
             >
               Take the Assessment
             </Link>

@@ -102,16 +102,32 @@ export const SignupPage = () => {
         phone: formData.phone,
         goals: [formData.selectedGoal],
         allergies: formData.selectedAllergies,
-        plan: 'Clinical Precision Pro'
+        role: 'patient',
+        program: 'Clinical Precision Pro'
       });
       navigate('/profile');
-    }, 700);
+    }, 600);
+  };
+
+  const fillQuickDemo = () => {
+    setFormData({
+      name: 'Sarah Jenkins',
+      email: 'sarah.j@example.com',
+      phone: '+1 (555) 392-8172',
+      password: 'Password123!',
+      confirmPassword: 'Password123!',
+      selectedGoal: 'Metabolic & Glucose Control',
+      selectedAllergies: ['Gluten Sensitivity', 'Low Sodium (Cardio)'],
+      agreeTerms: true
+    });
+    setErrors({});
+    addToast('Demo patient credentials auto-filled.');
   };
 
   return (
     <main className="flex-grow flex items-center justify-center w-full px-4 py-8 md:py-16 bg-surface">
       <div className="w-full max-w-5xl bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
-        {/* Left Column: Clinical Presentation & Benefits */}
+        {/* Left Column: Brand & Clinical Outcomes Story */}
         <div className="lg:col-span-5 bg-primary text-on-primary p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
           <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary-container rounded-full blur-3xl opacity-50 pointer-events-none" />
           <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-primary-fixed-variant rounded-full blur-3xl opacity-30 pointer-events-none" />
@@ -128,97 +144,136 @@ export const SignupPage = () => {
 
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-semibold text-primary-fixed mb-4">
               <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
-                verified
+                medical_information
               </span>
-              <span>Evidence-Based Patient Enrollment</span>
+              <span>Patient Onboarding Protocol</span>
             </div>
 
             <h2 className="font-headline-lg text-2xl md:text-3xl font-bold leading-tight mb-4">
-              Begin your personalized clinical nutrition journey.
+              Begin your clinical nutrition journey today.
             </h2>
-            <p className="text-primary-fixed-dim text-sm leading-relaxed mb-6">
-              Create your account to connect with registered dietitians, customize your metabolic dietary parameters, and schedule cold-chain meal delivery.
+
+            <p className="text-inverse-primary text-sm leading-relaxed mb-6">
+              Create your patient profile to connect with board-certified dietitians and start precision dietary delivery.
             </p>
 
-            {/* What you receive list */}
-            <div className="space-y-3 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/15 text-xs text-white/95">
-              <div className="flex items-start gap-2.5">
-                <span className="material-symbols-outlined text-primary-fixed text-[18px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>
+            {/* Highlights checklist */}
+            <div className="space-y-3 bg-surface/10 backdrop-blur-md rounded-xl p-4 border border-white/10 text-xs">
+              <div className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-primary-fixed text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>
                   check_circle
                 </span>
-                <span>
-                  <strong>Comprehensive Health Intake:</strong> Continuous biomarker tracking, CGM sync & laboratory panel reviews.
-                </span>
+                <span>Custom macro & micronutrient profiling</span>
               </div>
-              <div className="flex items-start gap-2.5">
-                <span className="material-symbols-outlined text-primary-fixed text-[18px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>
+              <div className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-primary-fixed text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>
                   check_circle
                 </span>
-                <span>
-                  <strong>Dedicated RDN Specialist:</strong> 1:1 consultation and clinical diet formulation.
-                </span>
+                <span>Dedicated 1-on-1 Registered Dietitian (RDN)</span>
               </div>
-              <div className="flex items-start gap-2.5">
-                <span className="material-symbols-outlined text-primary-fixed text-[18px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>
+              <div className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-primary-fixed text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>
                   check_circle
                 </span>
-                <span>
-                  <strong>Sterile Cold-Chain Delivery:</strong> Fresh chef-crafted clinical meals shipped daily to your door.
-                </span>
+                <span>Fresh chef meals calibrated to clinical labs</span>
               </div>
             </div>
           </div>
 
-          <div className="relative z-10 pt-8 mt-6 border-t border-white/15 flex items-center justify-between text-xs text-primary-fixed-dim">
-            <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-sm">security</span>
-              HIPAA Compliant
-            </span>
-            <span>•</span>
-            <span>No Long-Term Lock-in</span>
-            <span>•</span>
-            <span>HSA/FSA Eligible</span>
+          <div className="relative z-10 pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-inverse-primary">
+            <span>© 2026 Khamis Clinical Nutrition</span>
+            <Link to="/about" className="hover:underline">HIPAA Notice</Link>
           </div>
         </div>
 
         {/* Right Column: Sign Up Form */}
-        <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center">
-          <div className="max-w-lg mx-auto w-full">
-            {/* Header */}
-            <div className="mb-6">
-              <h1 className="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface mb-2">
-                Create Patient Account
-              </h1>
-              <p className="text-secondary text-sm">
-                Fill in your baseline information to personalize your clinical dashboard.
-              </p>
+        <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center bg-surface">
+          <div className="max-w-md w-full mx-auto">
+            {/* Header Tabs Switcher */}
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant">
+              <div>
+                <h1 className="font-headline-md text-2xl font-bold text-primary">
+                  Create Account
+                </h1>
+                <p className="text-xs text-secondary mt-1">
+                  Enrolling new patients in precision nutrition
+                </p>
+              </div>
+              <div className="flex rounded-lg bg-surface-container p-1 border border-outline-variant">
+                <Link
+                  to="/login"
+                  className="px-3 py-1 text-xs font-semibold text-secondary hover:text-primary transition-colors"
+                >
+                  Sign In
+                </Link>
+                <span className="px-3 py-1 text-xs font-bold bg-primary text-on-primary rounded-md shadow-xs">
+                  Sign Up
+                </span>
+              </div>
             </div>
 
+            {/* Quick Demo Autofill */}
+            <div className="mb-5 flex justify-between items-center bg-surface-container-low p-2.5 rounded-lg border border-outline-variant">
+              <span className="text-xs text-secondary font-medium">Want to test quickly?</span>
+              <button
+                type="button"
+                onClick={fillQuickDemo}
+                className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+              >
+                <span className="material-symbols-outlined text-[14px]">auto_fix_high</span>
+                Auto-fill Sample Data
+              </button>
+            </div>
+
+            {/* Main Registration Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Name & Phone Grid */}
+              <div>
+                <label className="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider block mb-1">
+                  Full Name *
+                </label>
+                <div className="relative">
+                  <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">
+                    person
+                  </span>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={e => {
+                      setFormData({ ...formData, name: e.target.value });
+                      if (errors.name) setErrors({ ...errors, name: null });
+                    }}
+                    placeholder="e.g. Sarah Jenkins"
+                    className={`w-full pl-10 pr-3 py-2.5 rounded-lg border bg-surface font-body-md text-sm text-on-surface focus:outline-none transition-all ${
+                      errors.name ? 'border-error focus:border-error' : 'border-outline-variant focus:border-primary'
+                    }`}
+                  />
+                </div>
+                {errors.name && <p className="text-xs text-error mt-1">{errors.name}</p>}
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider block mb-1">
-                    Full Name *
+                    Email Address *
                   </label>
                   <div className="relative">
                     <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">
-                      person
+                      mail
                     </span>
                     <input
-                      type="text"
-                      value={formData.name}
+                      type="email"
+                      value={formData.email}
                       onChange={e => {
-                        setFormData({ ...formData, name: e.target.value });
-                        if (errors.name) setErrors({ ...errors, name: null });
+                        setFormData({ ...formData, email: e.target.value });
+                        if (errors.email) setErrors({ ...errors, email: null });
                       }}
-                      placeholder="Jane Doe"
+                      placeholder="name@example.com"
                       className={`w-full pl-10 pr-3 py-2.5 rounded-lg border bg-surface font-body-md text-sm text-on-surface focus:outline-none transition-all ${
-                        errors.name ? 'border-error focus:border-error' : 'border-outline-variant focus:border-primary'
+                        errors.email ? 'border-error focus:border-error' : 'border-outline-variant focus:border-primary'
                       }`}
                     />
                   </div>
-                  {errors.name && <p className="text-xs text-error mt-1">{errors.name}</p>}
+                  {errors.email && <p className="text-xs text-error mt-1">{errors.email}</p>}
                 </div>
 
                 <div>
@@ -240,32 +295,6 @@ export const SignupPage = () => {
                 </div>
               </div>
 
-              {/* Email */}
-              <div>
-                <label className="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider block mb-1">
-                  Email Address *
-                </label>
-                <div className="relative">
-                  <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">
-                    mail
-                  </span>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={e => {
-                      setFormData({ ...formData, email: e.target.value });
-                      if (errors.email) setErrors({ ...errors, email: null });
-                    }}
-                    placeholder="jane.doe@example.com"
-                    className={`w-full pl-10 pr-3 py-2.5 rounded-lg border bg-surface font-body-md text-sm text-on-surface focus:outline-none transition-all ${
-                      errors.email ? 'border-error focus:border-error' : 'border-outline-variant focus:border-primary'
-                    }`}
-                  />
-                </div>
-                {errors.email && <p className="text-xs text-error mt-1">{errors.email}</p>}
-              </div>
-
-              {/* Passwords Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider block mb-1">

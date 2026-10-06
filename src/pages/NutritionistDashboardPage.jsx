@@ -12,7 +12,7 @@ export const NutritionistDashboardPage = () => {
 
   const handleApprovePlan = (id, client) => {
     setPendingPlans(prev => prev.filter(p => p.id !== id));
-    addToast(`Approved meal plan for ${client}! Client notified.`);
+    addToast(`Approved clinical protocol for ${client}! Client notified.`);
   };
 
   return (
@@ -40,7 +40,7 @@ export const NutritionistDashboardPage = () => {
             onClick={() => addToast('Viewing all 42 clinical patients.')}
             className="bg-surface text-primary border border-primary px-md py-sm rounded-lg font-label-sm text-label-sm uppercase hover:bg-surface-container-low transition-colors flex-1 md:flex-none text-center font-bold"
           >
-            Review All Plans
+            Review All Protocols
           </button>
           <button
             onClick={() => addToast('Opening client intake form modal...')}
@@ -132,7 +132,7 @@ export const NutritionistDashboardPage = () => {
           {/* Pending Reviews Card */}
           <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
             <div className="flex justify-between items-center mb-sm pb-sm border-b border-outline-variant">
-              <h3 className="font-headline-md text-lg font-bold text-on-surface">Pending Meal Plans</h3>
+              <h3 className="font-headline-md text-lg font-bold text-on-surface">Pending Dietary Protocols</h3>
               <span className="bg-tertiary-fixed text-on-tertiary-fixed text-[11px] font-bold px-2 py-0.5 rounded">
                 {pendingPlans.length} Needs Review
               </span>

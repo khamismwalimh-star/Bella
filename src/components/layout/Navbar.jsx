@@ -20,8 +20,9 @@ export const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Removed 'Plans' and replaced with 'Services'
   const navLinks = [
-    { name: 'Plans', path: '/services' },
+    { name: 'Services', path: '/services' },
     { name: 'Nutritionists', path: '/booking' },
     { name: 'About Us', path: '/about' },
     { name: 'Platform', path: '/platform' }
@@ -51,14 +52,16 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex space-x-gutter items-center">
-          {navLinks.map(link => (
+        <nav className="hidden md:flex space-x-1 lg:space-x-4 items-center">
+          {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-low px-sm py-xs rounded ${
-                  isActive ? 'text-primary font-semibold border-b-2 border-primary rounded-b-none' : ''
+                `text-secondary hover:text-primary transition-colors font-body-md text-body-md px-3 py-1.5 rounded-lg ${
+                  isActive
+                    ? 'text-primary font-bold bg-surface-container-low'
+                    : 'hover:bg-surface-container-low'
                 }`
               }
             >
@@ -67,40 +70,38 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-sm">
+        {/* Actions / Auth Buttons */}
+        <div className="hidden md:flex items-center space-x-3">
           {isAuthenticated && user ? (
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                className="flex items-center gap-2.5 p-1.5 pr-2.5 rounded-full hover:bg-surface-container-low border border-transparent hover:border-outline-variant transition-all focus:outline-none"
+                className="flex items-center gap-2.5 p-1.5 pl-3 rounded-full border border-outline-variant hover:border-primary bg-surface-container-lowest transition-all"
               >
+                <div className="text-right leading-tight hidden lg:block">
+                  <span className="block text-xs font-bold text-primary">{user.name}</span>
+                  <span className="block text-[10px] text-secondary uppercase font-semibold">
+                    {user.role === 'nutritionist' ? 'Clinical Staff' : 'Patient Member'}
+                  </span>
+                </div>
                 <img
                   src={user.avatar}
                   alt={user.name}
                   className="w-8 h-8 rounded-full border border-primary object-cover"
                 />
-                <div className="text-left flex flex-col">
-                  <span className="font-label-sm text-on-surface text-[13px] leading-tight font-bold">
-                    {user.name}
-                  </span>
-                  <span className="text-[10px] text-secondary leading-tight capitalize">
-                    {user.role || 'Patient'}
-                  </span>
-                </div>
-                <span className="material-symbols-outlined text-[18px] text-secondary">
+                <span className="material-symbols-outlined text-secondary text-sm">
                   {userDropdownOpen ? 'expand_less' : 'expand_more'}
                 </span>
               </button>
 
               {/* User Dropdown Menu */}
               {userDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="px-4 py-3 border-b border-outline-variant bg-surface-container-low">
-                    <p className="font-bold text-sm text-primary">{user.name}</p>
-                    <p className="text-xs text-secondary truncate">{user.email}</p>
-                    <span className="inline-block mt-1.5 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed">
-                      {user.plan || 'Active Member'}
+                <div className="absolute right-0 mt-2 w-56 bg-surface border border-outline-variant rounded-xl shadow-xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="px-4 py-2 border-b border-outline-variant">
+                    <p className="text-xs font-bold text-primary truncate">{user.name}</p>
+                    <p className="text-[11px] text-secondary truncate">{user.email}</p>
+                    <span className="inline-block mt-1 text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed">
+                      {user.role === 'nutritionist' ? 'Clinician' : 'Active Patient'}
                     </span>
                   </div>
 
@@ -111,7 +112,7 @@ export const Navbar = () => {
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
                     >
                       <span className="material-symbols-outlined text-[18px] text-primary">person</span>
-                      <span>Patient Health Profile</span>
+                      <span>Patient Portal</span>
                     </Link>
 
                     <Link
@@ -147,7 +148,7 @@ export const Navbar = () => {
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
                     >
                       <span className="material-symbols-outlined text-[18px] text-primary">palette</span>
-                      <span>Design System</span>
+                      <span>Design Tokens</span>
                     </Link>
                   </div>
 
@@ -164,7 +165,7 @@ export const Navbar = () => {
               )}
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <Link
                 to="/login"
                 className="font-label-sm text-label-sm text-primary px-4 py-2 rounded-lg border border-outline-variant hover:border-primary hover:bg-surface-container-low transition-all font-bold"
@@ -173,7 +174,7 @@ export const Navbar = () => {
               </Link>
               <Link
                 to="/signup"
-                className="font-label-sm text-label-sm bg-primary text-on-primary px-4 py-2 rounded-lg hover:bg-primary-container transition-all font-bold shadow-xs"
+                className="font-label-sm text-label-sm bg-primary text-on-primary px-5 py-2 rounded-lg hover:bg-primary-container transition-all font-bold shadow-xs hover:shadow-md active:scale-95"
               >
                 Sign Up
               </Link>
@@ -194,7 +195,7 @@ export const Navbar = () => {
           )}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-primary hover:bg-surface-container rounded"
+            className="p-2 text-primary hover:bg-surface-container rounded-lg"
             aria-label="Toggle menu"
           >
             <span className="material-symbols-outlined text-2xl">
@@ -213,7 +214,7 @@ export const Navbar = () => {
               to={link.path}
               onClick={() => setMobileMenuOpen(false)}
               className={({ isActive }) =>
-                `block px-3 py-2 rounded text-[15px] ${
+                `block px-3 py-2 rounded-lg text-[15px] ${
                   isActive ? 'bg-primary-fixed/40 text-primary font-bold' : 'text-secondary hover:bg-surface-container-low'
                 }`
               }
@@ -238,34 +239,27 @@ export const Navbar = () => {
                 <Link
                   to="/profile"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded"
+                  className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded-lg"
                 >
                   👤 Patient Portal & Biomarkers
                 </Link>
                 <Link
                   to="/nutritionist-dashboard"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded"
+                  className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded-lg"
                 >
                   🩺 Doctor & Telehealth Portal
                 </Link>
                 <Link
                   to="/payments"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded"
+                  className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded-lg"
                 >
                   💳 Payment & Invoices
                 </Link>
-                <Link
-                  to="/design-system"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded"
-                >
-                  🎨 Design System Tokens
-                </Link>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-3 py-2 text-[14px] text-error hover:bg-error/10 rounded font-bold"
+                  className="w-full text-left px-3 py-2 text-[14px] text-error hover:bg-error/10 rounded-lg font-bold"
                 >
                   🚪 Sign Out
                 </button>
@@ -282,7 +276,7 @@ export const Navbar = () => {
                 <Link
                   to="/signup"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-center bg-primary text-on-primary py-2.5 rounded-lg font-label-sm uppercase font-bold text-xs"
+                  className="text-center bg-primary text-on-primary py-2.5 rounded-lg font-label-sm uppercase font-bold text-xs shadow-xs"
                 >
                   Sign Up
                 </Link>
