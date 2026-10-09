@@ -11,7 +11,6 @@ import { AboutUsPage } from './pages/AboutUsPage';
 import { OurServicesPage } from './pages/OurServicesPage';
 import { ConsultationBookingPage } from './pages/ConsultationBookingPage';
 import { NutritionistProfilePage } from './pages/NutritionistProfilePage';
-import { NutritionistDashboardPage } from './pages/NutritionistDashboardPage';
 import { UserProfilePage } from './pages/UserProfilePage';
 import { PaymentHistoryPage } from './pages/PaymentHistoryPage';
 import { PlatformOverviewPage } from './pages/PlatformOverviewPage';
@@ -50,15 +49,19 @@ function App() {
               <Route path="/register" element={<SignupPage />} />
               <Route path="/auth" element={<AuthPage />} />
 
+              {/* Patient Profile & Sign Out Portal */}
+              <Route path="/profile" element={<UserProfilePage />} />
+              <Route path="/patient-portal" element={<UserProfilePage />} />
+              <Route path="/signout" element={<UserProfilePage />} />
+              <Route path="/sign-out" element={<UserProfilePage />} />
+              <Route path="/logout" element={<UserProfilePage />} />
+
               {/* Core Clinical Pages */}
               <Route path="/services" element={<OurServicesPage />} />
               <Route path="/our-services" element={<OurServicesPage />} />
               <Route path="/booking" element={<ConsultationBookingPage />} />
               <Route path="/nutritionists" element={<ConsultationBookingPage />} />
               <Route path="/nutritionist/:id" element={<NutritionistProfilePage />} />
-              <Route path="/nutritionist-dashboard" element={<NutritionistDashboardPage />} />
-              <Route path="/profile" element={<UserProfilePage />} />
-              <Route path="/patient-portal" element={<UserProfilePage />} />
               <Route path="/payments" element={<PaymentHistoryPage />} />
               <Route path="/billing" element={<PaymentHistoryPage />} />
               <Route path="/about" element={<AboutUsPage />} />
@@ -67,12 +70,14 @@ function App() {
               <Route path="/prototype" element={<PlatformOverviewPage />} />
               <Route path="/design-system" element={<DesignSystemPage />} />
 
-              {/* Redirects removing Plan URLs to Services */}
+              {/* Admin & Legacy Route Redirects */}
+              <Route path="/admin" element={<Navigate to="/profile" replace />} />
+              <Route path="/nutritionist-dashboard" element={<Navigate to="/profile" replace />} />
+              <Route path="/dashboard" element={<Navigate to="/profile" replace />} />
               <Route path="/plans" element={<Navigate to="/services" replace />} />
               <Route path="/plan" element={<Navigate to="/services" replace />} />
               <Route path="/pricing" element={<Navigate to="/services" replace />} />
               <Route path="/checkout" element={<Navigate to="/signup" replace />} />
-              <Route path="/admin" element={<Navigate to="/login" replace />} />
 
               {/* Fallback */}
               <Route path="*" element={<HomePage />} />

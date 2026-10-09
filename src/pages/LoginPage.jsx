@@ -40,23 +40,18 @@ export const LoginPage = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      const loggedUser = login(email, password);
-      const redirectPath = location.state?.from || (loggedUser.role === 'nutritionist' ? '/nutritionist-dashboard' : '/profile');
+      login(email, password);
+      const redirectPath = location.state?.from || '/profile';
       navigate(redirectPath);
     }, 500);
   };
 
-  const handleQuickDemoLogin = (role) => {
+  const handleQuickDemoLogin = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      if (role === 'nutritionist') {
-        login('dr.sarah@khamis.health', 'demo123', 'nutritionist');
-        navigate('/nutritionist-dashboard');
-      } else {
-        login('john.d@example.com', 'demo123', 'patient');
-        navigate('/profile');
-      }
+      login('john.d@example.com', 'demo123', 'patient');
+      navigate('/profile');
     }, 350);
   };
 
@@ -154,30 +149,23 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            {/* Quick 1-Click Demo Logins */}
-            <div className="mb-6 p-3.5 bg-surface-container-low border border-outline-variant rounded-xl">
-              <p className="font-label-sm text-[11px] text-primary uppercase font-bold tracking-wider mb-2 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[16px]">bolt</span>
-                Instant 1-Click Demo Logins
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => handleQuickDemoLogin('patient')}
-                  className="px-3 py-2 text-xs font-bold text-primary bg-surface border border-primary/30 hover:bg-primary-fixed/30 rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-xs"
-                >
-                  <span className="material-symbols-outlined text-[16px]">person</span>
-                  <span>Patient Demo</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleQuickDemoLogin('nutritionist')}
-                  className="px-3 py-2 text-xs font-bold text-on-primary bg-primary hover:bg-primary-container rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-xs"
-                >
-                  <span className="material-symbols-outlined text-[16px]">stethoscope</span>
-                  <span>Doctor Demo</span>
-                </button>
+            {/* Quick 1-Click Demo Login */}
+            <div className="mb-6 p-3.5 bg-surface-container-low border border-outline-variant rounded-xl flex items-center justify-between">
+              <div>
+                <p className="font-label-sm text-xs font-bold text-primary flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[16px]">bolt</span>
+                  Instant Test Sign In
+                </p>
+                <p className="text-[11px] text-secondary">Quick 1-click patient login</p>
               </div>
+              <button
+                type="button"
+                onClick={handleQuickDemoLogin}
+                className="px-4 py-2 text-xs font-bold text-on-primary bg-primary hover:bg-primary-container rounded-lg transition-all flex items-center gap-1.5 shadow-xs"
+              >
+                <span className="material-symbols-outlined text-[16px]">person</span>
+                <span>Patient Demo</span>
+              </button>
             </div>
 
             <div className="relative flex py-2 items-center mb-6">

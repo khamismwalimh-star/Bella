@@ -82,15 +82,14 @@ export const AppProvider = ({ children }) => {
   }, [user]);
 
   // Auth Functions
-  const login = (email, password, demoRole = null) => {
+  const login = (email, password) => {
     let loggedUser = DEFAULT_USER;
-    if (demoRole === 'nutritionist' || email?.toLowerCase().includes('sarah') || email?.toLowerCase().includes('doctor')) {
-      loggedUser = DOCTOR_USER;
-    } else if (email) {
+    if (email) {
       loggedUser = {
         ...DEFAULT_USER,
         email: email,
-        name: email.split('@')[0].replace('.', ' ').replace(/\b\w/g, l => l.toUpperCase())
+        name: email.split('@')[0].replace('.', ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        role: 'patient'
       };
     }
     setUser(loggedUser);

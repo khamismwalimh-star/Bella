@@ -20,19 +20,17 @@ export const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Removed 'Plans' and replaced with 'Services'
   const navLinks = [
     { name: 'Services', path: '/services' },
     { name: 'Nutritionists', path: '/booking' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Platform', path: '/platform' }
+    { name: 'About Us', path: '/about' }
   ];
 
   const handleLogout = () => {
     setUserDropdownOpen(false);
     setMobileMenuOpen(false);
     logout();
-    navigate('/login');
+    navigate('/profile');
   };
 
   return (
@@ -77,15 +75,16 @@ export const Navbar = () => {
               <button
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
                 className="flex items-center gap-2.5 p-1.5 pl-3 rounded-full border border-outline-variant hover:border-primary bg-surface-container-lowest transition-all"
+                aria-label="User Account Menu"
               >
                 <div className="text-right leading-tight hidden lg:block">
                   <span className="block text-xs font-bold text-primary">{user.name}</span>
                   <span className="block text-[10px] text-secondary uppercase font-semibold">
-                    {user.role === 'nutritionist' ? 'Clinical Staff' : 'Patient Member'}
+                    Verified Patient
                   </span>
                 </div>
                 <img
-                  src={user.avatar}
+                  src={user.avatar || 'https://lh3.googleusercontent.com/aida-public/AB6AXuDbaTAm5thtDHwgDzoliQ7g9L2IdCk6L1kVakdw6fD7Jd8IdT63bE-BjEMpU4Ja3e6QvgSsSPTOtDtDo8PYODwC33sI98ym3omSPCvQI1AcQSTJ0ihhU9HXldq6GhmcgeWQdAU3xw3yNnrc7pSZddLQ3HR8J0-IlE_9R4G9u4T6FkrQNTpYEvYdViyOPfWbE_cqyQqrFbmHR8E6qJz_puIv-DirwAJSU228WrkMRmPFIZWtZOL2U6NM'}
                   alt={user.name}
                   className="w-8 h-8 rounded-full border border-primary object-cover"
                 />
@@ -96,12 +95,12 @@ export const Navbar = () => {
 
               {/* User Dropdown Menu */}
               {userDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-surface border border-outline-variant rounded-xl shadow-xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                <div className="absolute right-0 mt-2 w-60 bg-surface border border-outline-variant rounded-xl shadow-xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-4 py-2 border-b border-outline-variant">
                     <p className="text-xs font-bold text-primary truncate">{user.name}</p>
                     <p className="text-[11px] text-secondary truncate">{user.email}</p>
                     <span className="inline-block mt-1 text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed">
-                      {user.role === 'nutritionist' ? 'Clinician' : 'Active Patient'}
+                      Active Patient Member
                     </span>
                   </div>
 
@@ -112,16 +111,7 @@ export const Navbar = () => {
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
                     >
                       <span className="material-symbols-outlined text-[18px] text-primary">person</span>
-                      <span>Patient Portal</span>
-                    </Link>
-
-                    <Link
-                      to="/nutritionist-dashboard"
-                      onClick={() => setUserDropdownOpen(false)}
-                      className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
-                    >
-                      <span className="material-symbols-outlined text-[18px] text-primary">stethoscope</span>
-                      <span>Doctor Portal</span>
+                      <span>Patient Profile & Portal</span>
                     </Link>
 
                     <Link
@@ -187,7 +177,7 @@ export const Navbar = () => {
           {isAuthenticated && user && (
             <Link to="/profile" className="p-1">
               <img
-                src={user.avatar}
+                src={user.avatar || 'https://lh3.googleusercontent.com/aida-public/AB6AXuDbaTAm5thtDHwgDzoliQ7g9L2IdCk6L1kVakdw6fD7Jd8IdT63bE-BjEMpU4Ja3e6QvgSsSPTOtDtDo8PYODwC33sI98ym3omSPCvQI1AcQSTJ0ihhU9HXldq6GhmcgeWQdAU3xw3yNnrc7pSZddLQ3HR8J0-IlE_9R4G9u4T6FkrQNTpYEvYdViyOPfWbE_cqyQqrFbmHR8E6qJz_puIv-DirwAJSU228WrkMRmPFIZWtZOL2U6NM'}
                 alt={user.name}
                 className="w-8 h-8 rounded-full border border-primary object-cover"
               />
@@ -232,7 +222,7 @@ export const Navbar = () => {
                     <p className="text-xs text-secondary">{user.email}</p>
                   </div>
                   <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed">
-                    {user.role || 'Patient'}
+                    Patient
                   </span>
                 </div>
 
@@ -244,11 +234,11 @@ export const Navbar = () => {
                   👤 Patient Portal & Biomarkers
                 </Link>
                 <Link
-                  to="/nutritionist-dashboard"
+                  to="/booking"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-[14px] text-secondary hover:bg-surface-container-low rounded-lg"
                 >
-                  🩺 Doctor & Telehealth Portal
+                  📅 Book Consultation
                 </Link>
                 <Link
                   to="/payments"
@@ -259,9 +249,10 @@ export const Navbar = () => {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-3 py-2 text-[14px] text-error hover:bg-error/10 rounded-lg font-bold"
+                  className="w-full text-left px-3 py-2 text-[14px] text-error hover:bg-error/10 rounded-lg font-bold flex items-center gap-2"
                 >
-                  🚪 Sign Out
+                  <span className="material-symbols-outlined text-[18px]">logout</span>
+                  <span>Sign Out</span>
                 </button>
               </>
             ) : (

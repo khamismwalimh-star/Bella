@@ -270,11 +270,11 @@ export const ConsultationBookingPage = () => {
               onClick={() => {
                 setIsModalOpen(false);
                 addToast('Appointment added to your health portal calendar!');
-                navigate('/nutritionist-dashboard');
+                navigate('/profile');
               }}
-              className="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-label-sm uppercase font-bold"
+              className="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-label-sm uppercase font-bold text-xs hover:bg-primary-container transition-colors"
             >
-              View in Doctor Portal
+              View in Patient Portal
             </button>
             <button
               onClick={() => setIsModalOpen(false)}
